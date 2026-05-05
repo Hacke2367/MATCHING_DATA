@@ -159,3 +159,80 @@ Alias sources:
 ## 9. Risk Context (Source B only)
 
 `risk_types` and `source_provenance` are carried inside `CandidateIdentity` but are never used in identity comparison — they only flow to the LLM Judge for adjudication weighting (e.g. government registry > blog) and to downstream risk decisioning (PEP, sanction, adverse media each have different handling).
+
+---
+
+## 10. Dashboard Adjudication Outputs
+
+The Test-Bench dashboard consumes two top-level shapes from the engine. These are the **engine's output contract** — `engine/extraction.py` and `engine/scoring.py` must populate every field so the UI is purely presentational (no business logic in the front-end).
+
+### `BatchScoreResult` (engine entry-point output)
+
+```python
+class BatchScoreResult(BaseModel):
+    user: CandidateIdentity            # the single Source A
+    best_match: Optional["MatchCard"]  # highest final_confidence; None only if all candidates hard-rejected
+    all_results: List["MatchCard"]     # ordered desc by final_confidence; includes hard-rejects
+    run_metadata: Dict[str, str]       # engine_version, run_started_utc, run_finished_utc, candidate_count
+```
+
+### `MatchCard` (per-candidate render contract)
+
+```python
+class ComparisonRow(BaseModel):
+    field_label: str                              # "Name", "Date of Birth", "Projected Age",
+                                                  # "Gender", "Location", "Profession", "PAN", "DIN", ...
+    user_value: Optional[str]                     # display string for Source A column
+    candidate_value: Optional[str]                # display string for Source B column
+    match_status: Literal["match", "partial", "mismatch", "missing"]
+    contribution_pts: Optional[float]             # how many of this field's weight this row earned
+
+class MatchCard(BaseModel):
+    candidate_id: str
+    candidate_summary: CandidateIdentity          # full aggregated record for drill-down
+
+    # === Verdict (drives the gauge) ===
+    verdict_color: Literal["GREEN", "AMBER", "RED"]
+    verdict_label: str                            # "Confirmed Match", "Review Required",
+                                                  # "Deferred — Low Confidence", "No Match / Discard"
+    final_confidence: float                       # 0.0–1.0
+    tier_reached: Literal[
+        "tier_0_id_match",
+        "tier_1_heuristic",
+        "tier_1_hard_reject",
+        "tier_2_llm_judge"
+    ]
+
+    # === Symmetric Comparison Table (pre-rendered for UI) ===
+    comparison_rows: List[ComparisonRow]
+
+    # === Scoring Audit Trail ===
+    score_breakdown: Dict[str, float]             # {"id": 60, "name": 18, "age": 10, "location": 10}
+    weights_used: Dict[str, int]                  # {"id": 60, "name": 20, "age": 10, "location": 10}
+    denominator: int                              # sum of weights for fields that were scoreable
+    penalties_applied: List[str]                  # ["GENDER_MISMATCH", "TEMPORAL_AGE_CONFLICT", ...]
+
+    # === Narrative Justification ===
+    identity_summary: str                         # aggregated one-line fact-sheet
+    llm_verdict: Optional[str]                    # populated only when tier_reached == "tier_2_llm_judge"
+
+    # === Risk Intelligence ===
+    risk_types: List[str]                         # PEP, sanction, adverse-media-v2-*, etc.
+    source_provenance: List[str]                  # government registry > major news > blog
+
+    # === Operational Flags (transparency) ===
+    flags: List[str]                              # AGE_PROJECTED, GENDER_NULL_BOTH_SIDES,
+                                                  # DOB_YEAR_ONLY, NO_REF_DATE, MULTI_COUNTRY_CANDIDATE,
+                                                  # NO_IDENTIFIERS, CONSENSUS_CONFLICT, EVENT_DATE_AMBIGUOUS
+```
+
+### Mandatory `comparison_rows` content
+At minimum, every `MatchCard` must include rows for: **Name**, **DOB / Projected Age** (single combined row, prefer `dob_exact` if present, else `projected_current_age` with the `(projected)` suffix), **Gender**, **Location** (rendered as `sub_district → city → state → country`), **Profession**, and one row per identifier present on either side.
+
+### `match_status` semantics
+| Status | When |
+| :--- | :--- |
+| `match` | Both sides populated, full weight earned |
+| `partial` | Both sides populated, partial weight earned (e.g. Jaro-Winkler 0.85, location partial subset) |
+| `mismatch` | Both sides populated, conflicting values |
+| `missing` | One or both sides null — excluded from denominator |

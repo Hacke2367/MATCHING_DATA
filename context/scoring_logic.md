@@ -108,14 +108,18 @@ When a candidate has multiple `supporting_snippets`, identity resolution is not 
 
 ---
 
-## 7. Confidence Thresholds
+## 7. Confidence Thresholds & Verdict Gauge
 
-| Score | Verdict |
-| :--- | :--- |
-| > 0.90 | High Confidence Match — auto-verified |
-| 0.70 – 0.89 | Likely Match — requires LLM Reasoning audit |
-| 0.50 – 0.69 | Ambiguous — LLM Judge required, defer if still unclear |
-| < 0.50 | Discard — false positive |
+The Test-Bench dashboard renders a visual signal derived from `final_confidence` and any hard-reject penalties.
+
+| Score Band | Gauge | `verdict_label` | Underlying behaviour |
+| :--- | :--- | :--- | :--- |
+| ≥ 0.90 **OR** Tier 0 ID match | 🟢 **GREEN** | Confirmed Match | Auto-verified, no human review needed |
+| 0.70 – 0.89 | 🟡 **AMBER** | Review Required | LLM Reasoner justification must be shown to reviewer |
+| 0.50 – 0.69 | 🟡 **AMBER** | Deferred — Low Confidence | LLM Judge invoked; reviewer must manually accept or reject |
+| < 0.50 **OR** Hard-Reject triggered | 🔴 **RED** | No Match / Discard | Engine successfully blocked a False Positive |
+
+**Important**: a 🔴 RED verdict caused by a hard-reject (gender mismatch, age conflict, summary contradiction) is a **success signal**, not a failure — it means the safety gates protected the user from a false positive.
 
 ---
 
@@ -154,3 +158,41 @@ Every result must produce an explainable record. Minimum fields:
 ```
 
 The `audit_log` must show exactly how the **Reference Date selection**, **Projected Age**, and **Gender Match** influenced the final 0.0–1.0 score.
+
+---
+
+## 9. Batch Scoring & Best-Match Selection
+
+The dashboard always invokes the engine in batch mode: one Source A vs. *N* Source B candidates.
+
+### Engine contract
+* Score every candidate independently against the same User.
+* Return a single `BatchScoreResult` (see `data_schema.md` §10) containing:
+  * `best_match` — highest `final_confidence` candidate (or `None` if all hard-rejected).
+  * `all_results` — full list ordered descending by `final_confidence`, including hard-rejects (so the dashboard can show *why* a name-matching candidate was discarded).
+
+### Tie-breaker order
+When two candidates tie on `final_confidence`:
+1. Higher `extraction_confidence`.
+2. More `supporting_snippets`.
+3. Higher source-provenance weight (government registry > major news > blog).
+4. Most recent `last_updated_utc` on the candidate doc.
+
+### Hard-rejects in the batch
+A hard-rejected candidate still appears in `all_results` with its 🔴 RED verdict and `penalties_applied` populated — the dashboard surfaces it so the reviewer can audit what the engine rejected and why.
+
+---
+
+## 10. Dashboard Output Contract
+
+The engine's output is the dashboard's contract. `engine/scoring.py` must populate every field of `MatchCard` so the UI is purely presentational.
+
+Required population per MatchCard:
+* `verdict_color` and `verdict_label` derived from §7 gauge logic.
+* `comparison_rows` — pre-rendered side-by-side rows for at minimum: Name, DOB / Projected Age, Gender, Location, Profession, and every populated identifier.
+* `score_breakdown` and `weights_used` — both sides of the weight ratio so the audit table can show "earned X of Y points" per field.
+* `denominator` — the actual sum of weights used (excludes unscoreable fields per §3 — never treat missing as zero).
+* `flags` — every operational flag that fired during extraction or scoring.
+* `llm_verdict` — populated only when Tier 2 was reached.
+
+No field on `MatchCard` may be left as null when the engine has the data to compute it; the dashboard layer must not perform business logic.

@@ -19,16 +19,16 @@ pip install -r requirements.txt
 python main.py
 ```
 
-## Architecture: 3-Layer Pipeline
+## Architecture: 3-Layer Engine + Dashboard Test-Bench
 
-Data flows through three sequential stages defined in `engine/`:
+The engine runs in **batch mode**: 1 Source A vs. *N* Source B candidates. The dashboard (Phase 5) is the human-facing surface.
 
 ```
-User KYC JSON  ────────────────────────────────────► CandidateIdentity ─┐
-                                                                          ├──► scoring.py ──► reasoning.py ──► final_match.json
-Candidate JSON ──► SnippetIdentity (per article) ──► CandidateIdentity ─┘
-                       extraction.py                   (aggregated)
-                       (Layer 1)                        (Layer 1)            (Layer 2)       (Layer 3)
+User KYC JSON ──────────────────────────────────────► CandidateIdentity ─┐
+                                                                           ├──► scoring.py ──► reasoning.py ──► BatchScoreResult ──► dashboard
+Candidate JSON[] ──► SnippetIdentity (per article) ──► CandidateIdentity ─┘                                       (MatchCard per candidate,
+                          extraction.py                  (aggregated)                                              best_match selected)
+                          (Layer 1)                       (Layer 1)              (Layer 2)       (Layer 3)
 ```
 
 **Layer 1 — `engine/extraction.py`** (Two-sub-layer model)
@@ -66,25 +66,38 @@ LLM (Gemini) called **only** for Tier 2 cases. Reviews `identity_summary` across
 
 **Input B — Candidate** (`data/potential_matches/`): Raw ComplyAdvantage result per person. Each candidate has multiple `media[]` snippets (5–10). Key fields: `doc.name`, `doc.aka[]`, `doc.types[]`, `doc.fields[]` (DOB, address, gender from source registries), `score`, `match_types`, `match_status`. See `context/data_example/potentail_matches.json` for full examples.
 
-**Output** (`outputs/final_match.json`): Must include `candidate_id`, `final_confidence` (0.0–1.0), `llm_verdict`, and `audit_log` with `reference_date_used`, `reference_date_source`, `projected_current_age`, `tier_reached`, and full score breakdown.
+**Engine Output** (`BatchScoreResult`): Top-level entry point output — contains `user`, `best_match` (top-ranked `MatchCard` or null if all hard-rejected), `all_results` (full list ordered desc by `final_confidence`, includes hard-rejects), and `run_metadata`. Persisted to `outputs/final_match.json`.
+
+**Test data** (`data/`): 5 synthetic Source A + Source B pairs in `data/actual_user/test_scenario_{1..5}.json` and `data/potential_matches/test_scenario_{1..5}.json` covering Tier 0 ID match, fuzzy aliases + DOB year fallback, temporal projection (2005 article → 2026 user), geo-hierarchy subset, and dual hard-reject (gender + age).
 
 ## Schemas (`config/schema.py`)
 
-Three Pydantic models (to be implemented):
+Six Pydantic models (to be implemented; full definitions in `context/data_schema.md` §3, §4, §10 and `context/final_blueprint_v1.md`):
+
+**Identity layer:**
 - `GeoLocation` — hierarchical location: `sub_district`, `city`, `state`, `country`, `country_code`, `raw`
-- `SnippetIdentity` — per-article extraction result (Source B only)
-- `CandidateIdentity` — the symmetric comparable form used by both sides for scoring
+- `SnippetIdentity` — per-article extraction result (Source B only); carries both `article_date` and `event_date`
+- `CandidateIdentity` — symmetric comparable form used by both sides for scoring
 
-See `context/data_schema.md` for full field definitions and `context/final_blueprint_v1.md` for the complete Pydantic code.
+**Dashboard contract layer:**
+- `ComparisonRow` — one side-by-side table row: `field_label`, `user_value`, `candidate_value`, `match_status` (`match`/`partial`/`mismatch`/`missing`), `contribution_pts`
+- `MatchCard` — per-candidate render contract: verdict (color/label/confidence/tier), `comparison_rows`, `score_breakdown` + `weights_used` + `denominator`, `penalties_applied`, `identity_summary`, `llm_verdict`, `risk_types`, `source_provenance`, `flags`
+- `BatchScoreResult` — engine entry-point output: `user`, `best_match`, `all_results`, `run_metadata`
 
-## Scoring Thresholds
+**Important**: `MatchCard` is the engine's output contract. `engine/scoring.py` must populate every field — the dashboard layer is purely presentational, no business logic in the front-end.
 
-| Score | Verdict |
-|---|---|
-| > 0.90 | High Confidence — Auto-Verified |
-| 0.70–0.89 | Likely Match — LLM reasoning required |
-| 0.50–0.69 | Ambiguous — LLM Judge required, defer if still unclear |
-| < 0.50 | Discard |
+## Verdict Gauge (Dashboard / Test-Bench)
+
+Visual signal derived from `final_confidence` and any hard-reject penalties:
+
+| Score Band | Gauge | `verdict_label` |
+|---|---|---|
+| ≥ 0.90 **OR** Tier 0 ID match | 🟢 **GREEN** | Confirmed Match |
+| 0.70 – 0.89 | 🟡 **AMBER** | Review Required (LLM Reasoner shown) |
+| 0.50 – 0.69 | 🟡 **AMBER** | Deferred — Low Confidence (manual override) |
+| < 0.50 **OR** Hard-Reject | 🔴 **RED** | No Match / Discard |
+
+A 🔴 RED on a hard-reject case is a **success signal** — the safety gates protected the user from a false positive.
 
 ## Age Projection Formula
 
@@ -104,3 +117,13 @@ Projected_Age = (Current_Year - reference_date.year) + Age_At_Event
 - `context/data_schema.md` — Two-layer model details, normalization rules, flag vocabulary, gender gate truth table
 - `context/scoring_logic.md` — Weightage matrix, temporal age projection worked example, multi-article consensus rules, audit log format
 - `context/Pro-Match_Identity_Engine.md` — High-level architecture overview
+
+## graphify
+
+This project has a graphify knowledge graph at graphify-out/.
+
+Rules:
+- Before answering architecture or codebase questions, read graphify-out/GRAPH_REPORT.md for god nodes and community structure
+- If graphify-out/wiki/index.md exists, navigate it instead of reading raw files
+- For cross-module "how does X relate to Y" questions, prefer `graphify query "<question>"`, `graphify path "<A>" "<B>"`, or `graphify explain "<concept>"` over grep — these traverse the graph's EXTRACTED + INFERRED edges instead of scanning files
+- After modifying code files in this session, run `graphify update .` to keep the graph current (AST-only, no API cost)

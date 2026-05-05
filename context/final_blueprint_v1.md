@@ -234,10 +234,46 @@ class CandidateIdentity(BaseModel):
 
 ---
 
+## Phase 5 — Manual Adjudication Dashboard (Test-Bench)
+
+The dashboard is the human-facing surface that exercises the engine end-to-end against real Source A + Source B inputs. It is the primary tool for validating extraction, scoring, and the safety gates before the engine is wired into production KYC flows.
+
+### Workflow Contract
+1. **Input 1 — Source A**: a single User KYC JSON (the 130-field shape from `actual_user.json`).
+2. **Input 2 — Source B**: a list of one or more raw ComplyAdvantage candidate objects.
+3. **On Submit**: the engine iterates through every candidate in Source B, scores each against Source A independently, sorts by `final_confidence` descending, and returns a `BatchScoreResult` (see `data_schema.md` §10).
+4. **Best-Match Identification**: the candidate at index 0 of `all_results` is the dashboard's primary focus and renders as a `MatchCard`. Lower-ranked candidates are accessible via a collapsible secondary list. Hard-rejected candidates remain in `all_results` so the reviewer can audit *why* a name-matching candidate was discarded.
+
+### Verdict Gauge
+
+| Score Band | Gauge | `verdict_label` | Meaning |
+| :--- | :--- | :--- | :--- |
+| ≥ 0.90 **OR** Tier 0 ID match | 🟢 **GREEN** | Confirmed Match | Auto-verified |
+| 0.70 – 0.89 | 🟡 **AMBER** | Review Required | LLM Reasoner justification must be displayed |
+| 0.50 – 0.69 | 🟡 **AMBER** | Deferred — Low Confidence | LLM Judge invoked; reviewer must manually accept or reject |
+| < 0.50 **OR** Hard-Reject | 🔴 **RED** | No Match / Discard | Engine successfully blocked a False Positive |
+
+A 🔴 RED verdict on a hard-reject case is a **success signal**, not a failure: it means the safety gates protected the user.
+
+### Match Card Sections (UI rendering order)
+
+1. **Verdict Banner** — large color-coded gauge + `final_confidence` + `tier_reached` + `verdict_label`.
+2. **Symmetric Comparison Table** — two-column side-by-side view driven by `MatchCard.comparison_rows`. Mandatory rows: Name, DOB / Projected Age, Gender, Location (hierarchical render), Profession, and one row per populated identifier on either side. Each row is tagged `match` / `partial` / `mismatch` / `missing`.
+3. **Scoring Audit Trail** — transparent table of the 60/20/10/10 weightage distribution showing points actually earned per field, the `denominator` used (which excludes unscoreable fields — never treat missing as zero), and any `penalties_applied`.
+4. **Narrative Justification** — `identity_summary` always shown. `llm_verdict` displayed only when `tier_reached == "tier_2_llm_judge"`.
+5. **Risk Intelligence** — `risk_types` chips (PEP, Sanctions, Adverse Media variants, fitness-probity) and `source_provenance` (rendered with credibility tier: government registry > major news > blog).
+6. **Operational Flags** — surface every flag (`AGE_PROJECTED`, `GENDER_NULL_BOTH_SIDES`, `DOB_YEAR_ONLY`, `NO_REF_DATE`, `MULTI_COUNTRY_CANDIDATE`, `NO_IDENTIFIERS`, `CONSENSUS_CONFLICT`, `EVENT_DATE_AMBIGUOUS`) so the reviewer sees exactly which graceful-degradation paths the engine took.
+
+### Implementation Note
+The `MatchCard` shape **is** the engine's output contract. `engine/extraction.py` and `engine/scoring.py` must populate every MatchCard field so the dashboard layer is purely presentational — no business logic in the front-end. This keeps the engine independently testable (the Test-Bench is one consumer; production KYC pipelines will be another).
+
+---
+
 ## Files to Implement (next phase — not in scope of this document)
 
-- `config/schema.py` — replace placeholder dataclasses with the full Pydantic models above (`GeoLocation`, `SnippetIdentity`, `CandidateIdentity`).
+- `config/schema.py` — replace placeholder dataclasses with the full Pydantic models (`GeoLocation`, `SnippetIdentity`, `CandidateIdentity`, `ComparisonRow`, `MatchCard`, `BatchScoreResult`).
 - `engine/extraction.py` — implement `extract_user(raw_user_json) -> CandidateIdentity` and `extract_candidate(raw_candidate_json) -> CandidateIdentity` (the latter internally produces `SnippetIdentity` per article, then aggregates).
-- `engine/scoring.py` — implement weighted scoring per `scoring_logic.md` §2–§5.
-- `engine/reasoning.py` — implement Layer-3 LLM Judge per `scoring_logic.md` §6.
+- `engine/scoring.py` — implement weighted scoring per `scoring_logic.md` §2–§5, batch-mode best-match selection per §9, and `MatchCard` population per §10.
+- `engine/reasoning.py` — implement Layer-3 LLM Judge per `scoring_logic.md` §6; populate `llm_verdict` on the MatchCard.
+- `dashboard/` — Test-Bench UI (separate package). Consumes `BatchScoreResult` only — no engine logic.
 - Add `pydantic` to `requirements.txt`.

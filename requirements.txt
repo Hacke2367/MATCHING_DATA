@@ -1,0 +1,14 @@
+# Core identity resolution
+pydantic>=2.0
+pydantic-settings>=2.0
+python-dotenv>=1.0
+
+# Fuzzy name matching (Jaro-Winkler)
+jellyfish>=1.0
+
+# LLM providers (Tier-2 reasoning)
+google-genai>=1.0
+anthropic>=0.25
+
+# Testing
+pytest>=7.0

@@ -1,0 +1,90 @@
+{
+    "doc": {
+        "id": "SYNTH004DEEPA001",
+        "aka": [
+            { "name": "Deepa K" }
+        ],
+        "name": "Deepa Krishnamurthy",
+        "media": [
+            {
+                "url": "https://www.deccanherald.com/fake/bangalore-director-mca",
+                "date": "2023-06-11T00:00:00Z",
+                "title": "Bangalore-based company director Deepa Krishnamurthy disqualified by MCA",
+                "snippet": "The Ministry of Corporate Affairs (MCA) has disqualified Deepa Krishnamurthy, a company director based in Bangalore, Karnataka, for failing to file annual returns for three consecutive years. The order, issued under Section 164 of the Companies Act, bars her from acting as a director of any company for five years. MCA records confirm that Krishnamurthy is a resident of Karnataka. The disqualification notice was served to her last registered address in Karnataka."
+            },
+            {
+                "url": "https://www.thehindu.com/fake/karnataka-shell-companies",
+                "date": "2024-01-22T00:00:00Z",
+                "title": "Karnataka probe links shell companies to Bangalore businesswoman",
+                "snippet": "Investigators from the Registrar of Companies, Bengaluru, have linked a network of dormant shell companies to Deepa Krishnamurthy, a Bangalore-based director. Court filings describe Krishnamurthy as a resident of Bangalore and state that she incorporated at least four companies with the same registered address. The probe was initiated following a tip from the income tax department. Krishnamurthy's counsel stated that his client is cooperating with authorities."
+            }
+        ],
+        "types": [
+            "adverse-media",
+            "adverse-media-v2-fraud-linked",
+            "fitness-probity"
+        ],
+        "fields": [
+            {
+                "name": "Country",
+                "value": "India",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "name": "Original Country Text",
+                "value": "India",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "tag": "date_of_birth",
+                "name": "Date of Birth",
+                "value": "1979",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "name": "Gender",
+                "value": "female",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "name": "Enforcement Agency",
+                "value": "Ministry of Corporate Affairs India",
+                "source": "india-ministry-of-corporate-affairs-disqualified-directors"
+            },
+            {
+                "name": "Enforcement Type",
+                "value": "Disqualified Director",
+                "source": "india-ministry-of-corporate-affairs-disqualified-directors"
+            },
+            {
+                "tag": "country_names",
+                "name": "Countries",
+                "value": "India"
+            }
+        ],
+        "sources": [
+            "complyadvantage-adverse-media",
+            "india-ministry-of-corporate-affairs-disqualified-directors"
+        ],
+        "keywords": [],
+        "created_utc": "2023-06-11T10:00:00Z",
+        "entity_type": "person",
+        "source_notes": {
+            "complyadvantage-adverse-media": {
+                "name": "ComplyAdvantage Adverse Media",
+                "aml_types": ["adverse-media", "adverse-media-v2-fraud-linked"],
+                "country_codes": ["IN"]
+            },
+            "india-ministry-of-corporate-affairs-disqualified-directors": {
+                "name": "India Ministry of Corporate Affairs Disqualified Directors",
+                "aml_types": ["fitness-probity"],
+                "country_codes": ["IN"]
+            }
+        },
+        "last_updated_utc": "2024-01-22T12:00:00Z"
+    },
+    "score": 0.6,
+    "match_types": ["name_exact"],
+    "match_status": "potential_match",
+    "is_whitelisted": false
+}

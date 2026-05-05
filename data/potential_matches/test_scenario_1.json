@@ -1,0 +1,91 @@
+{
+    "doc": {
+        "id": "SYNTH001PRIYA001",
+        "aka": [
+            { "name": "Priya Nair" }
+        ],
+        "name": "Priya Ramesh Nair",
+        "media": [
+            {
+                "url": "https://www.economictimes.indiatimes.com/fake/priya-nair-sebi-order",
+                "date": "2024-03-15T00:00:00Z",
+                "title": "SEBI issues notice to Mumbai investment banker Priya Ramesh Nair over alleged front-running",
+                "snippet": "The Securities and Exchange Board of India (SEBI) has issued a show-cause notice to Priya Ramesh Nair, 35, a Mumbai-based investment banker, in connection with alleged front-running activities on behalf of a foreign institutional investor. Nair, whose PAN number ABCPN1234R appears in the transaction records, has reportedly executed trades ahead of large institutional orders. She operates out of Bandra West, Mumbai, Maharashtra, and holds qualifications from the National Institute of Securities Markets."
+            },
+            {
+                "url": "https://www.financialexpress.com/fake/sebi-ban-list-2024",
+                "date": "2024-05-20T00:00:00Z",
+                "title": "SEBI bans five individuals including Priya Nair from securities market",
+                "snippet": "SEBI on Monday banned five individuals from participating in the securities market for a period of two years. Among those banned is Priya Ramesh Nair, born 1988, whose permanent account number ABCPN1234R was found in the audit trail of suspicious trading patterns. Nair, a resident of Mumbai, Maharashtra, had been employed with a leading private bank. The order will remain effective until further notice."
+            }
+        ],
+        "types": [
+            "adverse-media",
+            "adverse-media-v2-financial-aml-cft",
+            "adverse-media-v2-regulatory"
+        ],
+        "fields": [
+            {
+                "name": "Country",
+                "value": "India",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "name": "Original Country Text",
+                "value": "India",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "tag": "date_of_birth",
+                "name": "Date of Birth",
+                "value": "1988",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "name": "Gender",
+                "value": "female",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "tag": "identification_number",
+                "name": "PAN",
+                "value": "ABCPN1234R",
+                "source": "india-sebi-ban-list"
+            },
+            {
+                "name": "Address",
+                "value": "Bandra West, Mumbai, Maharashtra",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "tag": "country_names",
+                "name": "Countries",
+                "value": "India"
+            }
+        ],
+        "sources": [
+            "complyadvantage-adverse-media",
+            "india-sebi-ban-list"
+        ],
+        "keywords": [],
+        "created_utc": "2024-03-15T10:00:00Z",
+        "entity_type": "person",
+        "source_notes": {
+            "complyadvantage-adverse-media": {
+                "name": "ComplyAdvantage Adverse Media",
+                "aml_types": ["adverse-media", "adverse-media-v2-financial-aml-cft", "adverse-media-v2-regulatory"],
+                "country_codes": ["IN"]
+            },
+            "india-sebi-ban-list": {
+                "name": "India SEBI Debarred Entities",
+                "aml_types": ["adverse-media-v2-regulatory"],
+                "country_codes": ["IN"]
+            }
+        },
+        "last_updated_utc": "2024-05-20T12:00:00Z"
+    },
+    "score": 0.9,
+    "match_types": ["name_exact"],
+    "match_status": "potential_match",
+    "is_whitelisted": false
+}

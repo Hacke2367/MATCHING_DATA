@@ -1,62 +1,54 @@
+
+---
+
 # Project Blueprint: Pro-Match Identity Engine
 
 ## 1. Executive Summary & Philosophy
-**Pro-Match Engine** ek high-precision **Entity Resolution (ER)** framework hai. Iska primary objective unstructured, noise-heavy legal snippets aur structured user onboarding data ke beech mathematical aur semantic similarity establish karna hai.
-
-* **Guiding Principle:** *Precision over Recall.* System ka design "False Positives" ko eliminate karne ke liye optimized hai. Ek galat match (False Positive) system failure mana jayega, jabki "No Match Found" ek valid successful exit hai.
-* **Hybrid Methodology:** Computationally cheap heuristic filtering (Python/Regex) aur computationally expensive semantic reasoning (LLM) ka **80/20 split**.
+Pro-Match Engine is a high-precision **Entity Resolution (ER)** framework[cite: 1].
+*   **Core Goal:** Match unstructured "Adverse Media" snippets to structured User KYC data[cite: 1].
+*   **Philosophy:** **Precision over Recall.** We prefer missing a match over identifying the wrong person[cite: 1].
 
 ---
 
-## 2. Technical Architecture (The Pipeline)
+## 2. Technical Architecture
 
-### Phase I: Symmetric Data Normalization
-* Source A (Onboarding) aur Source B (Raw Snippets) ko ek **Common Pydantic Schema** mein map kiya jayega.
-* **Normalization Logic:** Har snippet ko LLM-powered extraction se guzar kar "Clean JSON" mein convert kiya jayega.
-* **Checkpoint Match:** Dono side ke data points (Name, Age, Locations, IDs) ko $O(1)$ lookup efficiency ke liye key-value pairs mein sanitize kiya jayega.
+### Phase I: Symmetric Normalization
+Convert both the "Giant User JSON" and the "Messy Web Snippets" into the **Shared Identity Schema**[cite: 1].
 
-### Phase II: The Retrieval Layer (Vector DB)
-* **Semantic Indexing:** Har candidate profile ki "Semantic Summary" ko embedding mein badal kar Vector DB (e.g., ChromaDB) mein index kiya jayega.
-* **Metadata Injection:** Original structured JSON ko embedding ke sath as metadata attach kiya jayega taaki search ke baad logic-based processing turant shuru ho sake.
+### Phase II: Multi-Article Extraction (The Refiner)
+Extract metadata from each snippet separately[cite: 1].
+*   **Key Task:** Identify the `reference_date` of each article to anchor the age calculation[cite: 1].
 
 ### Phase III: The Heuristic Scoring Engine
-Retrieval ke baad mile top-K candidates par niche diye gaye logic apply honge:
-1.  **Deterministic Filtering:** Agar `User_Age` aur `Candidate_Age` mein variance $> \pm3$ years hai, toh record automatically **Hard-Rejected** hoga.
-2.  **Fuzzy String Matching:** Names ke liye **Jaro-Winkler** algorithm ka use hoga (prefix sensitivity handle karne ke liye).
-3.  **Geo-Spatial Context:** Locations ko sirf string match nahi, balki hierarchical check (e.g., "Neral" $\subset$ "Mumbai Metropolitan Region") se analyze kiya jayega.
+Calculate scores for each snippet[cite: 1].
+*   **Alias Logic:** Check user’s middle/last names against snippet aliases[cite: 1].
+*   **Geo-Hierarchy:** Validate if "Jogeshwari" matches "Mumbai" records[cite: 1].
 
-### Phase IV: Contextual Reasoning (The LLM Judge)
-High-confidence candidates (>70 score) ko Gemini API ke pas bheja jayega final verdict ke liye.
-* **Logic:** LLM timeline consistency (e.g., "2015 mein student tha toh 2016 mein Director kaise?") aur career-path logic ko analyze karega.
+### Phase IV: Entity Consensus (The Judge)
+If 5 potential matches are found for "Ankit Dubey," the LLM Judge reviews all 5 `identity_summaries`[cite: 1].
+*   **Consensus:** Does the "Software Engineer" profile in the User Data match the "Technology Lead" profile in the Adverse Media?[cite: 1]
 
 ---
 
-## 3. Failure-Mode Foresight (The Edge Case DNA)
+## 3. Failure-Mode Foresight (Edge Cases)
 
-| Scenario | Fallback / Logic |
+| Scenario | Logic / Fallback |
 | :--- | :--- |
-| **Missing DOB** | Age filter bypass karke industry aur location history par weightage $1.5x$ shift kar dena. |
-| **Common Name** | Name score ko ignore karke Unique IDs (DIN/PAN) aur behavior patterns ko primary match trigger banana. |
-| **Location Drift** | User ki "Current City" ko snippet ki "Historical Locations" ke sath cross-verify karna (Sequential validation). |
+| **Gender Mismatch** | Immediate **Hard-Reject** to prevent cross-gender false positives[cite: 1]. |
+| **Old News (2005)** | Project age forward to 2026 using `reference_date`[cite: 1]. |
+| **Fragmented Name** | Use **Jaro-Winkler** on aliases array[cite: 1]. |
+| **Conflict in Records** | Use the **"Consensus Rule"**: Trust the majority of articles/identifiers[cite: 1]. |
 
 ---
 
 ## 4. Resource & Latency Optimization
-* **Tiered Processing:** Pehle Regex-based NER (Named Entity Recognition) se IDs aur Dates nikalna. LLM ko sirf tab call karna jab unique IDs missing hon.
-* **Batch Extraction:** 150 records ko clean karne ke liye asynchronous batch processing ka use karna taaki latency $< 15$ seconds rahe.
+*   **Asynchronous Extraction:** Process all snippets in parallel[cite: 1].
+*   **Tiered Scoring:** Use Python for math; call **Gemini** only for high-stakes final reasoning[cite: 1].
 
 ---
 
-## 5. Logical Auditability (The Paper Trail)
-Har final output ek `audit_log` ke sath aayega:
-* **Scoring Breakdown:** Kis field ne kitne points contribute kiye ($S = \sum w_i m_i$).
-* **Decision Reason:** LLM ka direct statement ki "Kyu ye match hai ya kyu ye reject hua."
-* **Confidence Interval:** Ek numerical value (0.0 to 1.0) jo final certainty batati hai.
+## 5. Logical Auditability
+Every result must be explainable[cite: 1]. The `audit_log` will show exactly how the **Projected Age** and **Gender Match** influenced the final **0.0-1.0 score**[cite: 1].
 
 ---
 
-## 6. Technical Stack
-* **Core:** Python 3.10+
-* **Validation:** Pydantic V2
-* **Similarity Logic:** RapidFuzz (for Jaro-Winkler), Sentence-Transformers (for local embeddings).
-* **Intelligence:** Gemini 2.5 Flash (Optimized for Extraction Speed).

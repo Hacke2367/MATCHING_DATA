@@ -1,0 +1,654 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "exceptions.py",
+      "file_type": "code",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L1",
+      "id": "backend_src_exceptions_py",
+      "community": 1,
+      "norm_label": "exceptions.py"
+    },
+    {
+      "label": "MatchingEngineError",
+      "file_type": "code",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L1",
+      "id": "src_exceptions_matchingengineerror",
+      "community": 3,
+      "norm_label": "matchingengineerror"
+    },
+    {
+      "label": "Exception",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "exception",
+      "community": 3,
+      "norm_label": "exception"
+    },
+    {
+      "label": "ExtractionError",
+      "file_type": "code",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L5",
+      "id": "src_exceptions_extractionerror",
+      "community": 1,
+      "norm_label": "extractionerror"
+    },
+    {
+      "label": "ScoringError",
+      "file_type": "code",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L9",
+      "id": "src_exceptions_scoringerror",
+      "community": 10,
+      "norm_label": "scoringerror"
+    },
+    {
+      "label": "HardRejectError",
+      "file_type": "code",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L13",
+      "id": "src_exceptions_hardrejecterror",
+      "community": 2,
+      "norm_label": "hardrejecterror"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L19",
+      "id": "src_exceptions_hardrejecterror_init",
+      "community": 2,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": "SchemaValidationError",
+      "file_type": "code",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L25",
+      "id": "src_exceptions_schemavalidationerror",
+      "community": 9,
+      "norm_label": "schemavalidationerror"
+    },
+    {
+      "label": "Base class for all engine errors.",
+      "file_type": "rationale",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L2",
+      "id": "src_exceptions_rationale_2",
+      "community": 3,
+      "norm_label": "base class for all engine errors."
+    },
+    {
+      "label": "Raised when LLM extraction of a snippet or user KYC fails.",
+      "file_type": "rationale",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L6",
+      "id": "src_exceptions_rationale_6",
+      "community": 1,
+      "norm_label": "raised when llm extraction of a snippet or user kyc fails."
+    },
+    {
+      "label": "Raised when the scoring layer encounters an unrecoverable state.",
+      "file_type": "rationale",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L10",
+      "id": "src_exceptions_rationale_10",
+      "community": 10,
+      "norm_label": "raised when the scoring layer encounters an unrecoverable state."
+    },
+    {
+      "label": "Raised when a hard-reject gate fires (gender mismatch, age conflict, etc.).",
+      "file_type": "rationale",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L14",
+      "id": "src_exceptions_rationale_14",
+      "community": 2,
+      "norm_label": "raised when a hard-reject gate fires (gender mismatch, age conflict, etc.)."
+    },
+    {
+      "label": "Raised when a CandidateIdentity or MatchCard fails Pydantic validation.",
+      "file_type": "rationale",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L26",
+      "id": "src_exceptions_rationale_26",
+      "community": 9,
+      "norm_label": "raised when a candidateidentity or matchcard fails pydantic validation."
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "backend/src/__init__.py",
+      "source_location": "L1",
+      "id": "backend_src_init_py",
+      "community": 11,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "settings.py",
+      "file_type": "code",
+      "source_file": "backend/src/config/settings.py",
+      "source_location": "L1",
+      "id": "backend_src_config_settings_py",
+      "community": 4,
+      "norm_label": "settings.py"
+    },
+    {
+      "label": "Settings",
+      "file_type": "code",
+      "source_file": "backend/src/config/settings.py",
+      "source_location": "L4",
+      "id": "config_settings_settings",
+      "community": 4,
+      "norm_label": "settings"
+    },
+    {
+      "label": "BaseSettings",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "basesettings",
+      "community": 4,
+      "norm_label": "basesettings"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "backend/src/config/__init__.py",
+      "source_location": "L1",
+      "id": "backend_src_config_init_py",
+      "community": 12,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "logging_config.py",
+      "file_type": "code",
+      "source_file": "backend/src/utils/logging_config.py",
+      "source_location": "L1",
+      "id": "backend_src_utils_logging_config_py",
+      "community": 5,
+      "norm_label": "logging_config.py"
+    },
+    {
+      "label": "get_logger()",
+      "file_type": "code",
+      "source_file": "backend/src/utils/logging_config.py",
+      "source_location": "L7",
+      "id": "utils_logging_config_get_logger",
+      "community": 5,
+      "norm_label": "get_logger()"
+    },
+    {
+      "label": "setup_logging()",
+      "file_type": "code",
+      "source_file": "backend/src/utils/logging_config.py",
+      "source_location": "L11",
+      "id": "utils_logging_config_setup_logging",
+      "community": 5,
+      "norm_label": "setup_logging()"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "backend/src/utils/__init__.py",
+      "source_location": "L1",
+      "id": "backend_src_utils_init_py",
+      "community": 13,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "schema.py",
+      "file_type": "code",
+      "source_file": "config/schema.py",
+      "source_location": "L1",
+      "id": "config_schema_py",
+      "community": 0,
+      "norm_label": "schema.py"
+    },
+    {
+      "label": "User",
+      "file_type": "code",
+      "source_file": "config/schema.py",
+      "source_location": "L7",
+      "id": "config_schema_user",
+      "community": 0,
+      "norm_label": "user"
+    },
+    {
+      "label": "Candidate",
+      "file_type": "code",
+      "source_file": "config/schema.py",
+      "source_location": "L13",
+      "id": "config_schema_candidate",
+      "community": 0,
+      "norm_label": "candidate"
+    },
+    {
+      "label": "MatchResult",
+      "file_type": "code",
+      "source_file": "config/schema.py",
+      "source_location": "L19",
+      "id": "config_schema_matchresult",
+      "community": 0,
+      "norm_label": "matchresult"
+    },
+    {
+      "label": "Potential match candidate",
+      "file_type": "rationale",
+      "source_file": "config/schema.py",
+      "source_location": "L14",
+      "id": "config_schema_rationale_14",
+      "community": 0,
+      "norm_label": "potential match candidate"
+    },
+    {
+      "label": "Final matching result",
+      "file_type": "rationale",
+      "source_file": "config/schema.py",
+      "source_location": "L20",
+      "id": "config_schema_rationale_20",
+      "community": 0,
+      "norm_label": "final matching result"
+    },
+    {
+      "label": "extraction.py",
+      "file_type": "code",
+      "source_file": "engine/extraction.py",
+      "source_location": "L1",
+      "id": "engine_extraction_py",
+      "community": 6,
+      "norm_label": "extraction.py"
+    },
+    {
+      "label": "extract_data()",
+      "file_type": "code",
+      "source_file": "engine/extraction.py",
+      "source_location": "L4",
+      "id": "engine_extraction_extract_data",
+      "community": 6,
+      "norm_label": "extract_data()"
+    },
+    {
+      "label": "Extract structured data from messy snippets",
+      "file_type": "rationale",
+      "source_file": "engine/extraction.py",
+      "source_location": "L5",
+      "id": "engine_extraction_rationale_5",
+      "community": 6,
+      "norm_label": "extract structured data from messy snippets"
+    },
+    {
+      "label": "reasoning.py",
+      "file_type": "code",
+      "source_file": "engine/reasoning.py",
+      "source_location": "L1",
+      "id": "engine_reasoning_py",
+      "community": 7,
+      "norm_label": "reasoning.py"
+    },
+    {
+      "label": "get_llm_judgment()",
+      "file_type": "code",
+      "source_file": "engine/reasoning.py",
+      "source_location": "L4",
+      "id": "engine_reasoning_get_llm_judgment",
+      "community": 7,
+      "norm_label": "get_llm_judgment()"
+    },
+    {
+      "label": "Get LLM final judgment and reasoning",
+      "file_type": "rationale",
+      "source_file": "engine/reasoning.py",
+      "source_location": "L5",
+      "id": "engine_reasoning_rationale_5",
+      "community": 7,
+      "norm_label": "get llm final judgment and reasoning"
+    },
+    {
+      "label": "scoring.py",
+      "file_type": "code",
+      "source_file": "engine/scoring.py",
+      "source_location": "L1",
+      "id": "engine_scoring_py",
+      "community": 8,
+      "norm_label": "scoring.py"
+    },
+    {
+      "label": "calculate_score()",
+      "file_type": "code",
+      "source_file": "engine/scoring.py",
+      "source_location": "L4",
+      "id": "engine_scoring_calculate_score",
+      "community": 8,
+      "norm_label": "calculate_score()"
+    },
+    {
+      "label": "Calculate weighted score based on extracted features",
+      "file_type": "rationale",
+      "source_file": "engine/scoring.py",
+      "source_location": "L5",
+      "id": "engine_scoring_rationale_5",
+      "community": 8,
+      "norm_label": "calculate weighted score based on extracted features"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_exceptions_py",
+      "target": "src_exceptions_matchingengineerror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_exceptions_py",
+      "target": "src_exceptions_extractionerror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_exceptions_py",
+      "target": "src_exceptions_scoringerror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_exceptions_py",
+      "target": "src_exceptions_hardrejecterror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_exceptions_py",
+      "target": "src_exceptions_schemavalidationerror"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_matchingengineerror",
+      "target": "exception"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_extractionerror",
+      "target": "src_exceptions_matchingengineerror"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_scoringerror",
+      "target": "src_exceptions_matchingengineerror"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_hardrejecterror",
+      "target": "src_exceptions_matchingengineerror"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_schemavalidationerror",
+      "target": "src_exceptions_matchingengineerror"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_rationale_2",
+      "target": "src_exceptions_matchingengineerror"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_rationale_6",
+      "target": "src_exceptions_extractionerror"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_rationale_10",
+      "target": "src_exceptions_scoringerror"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_hardrejecterror",
+      "target": "src_exceptions_hardrejecterror_init"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_rationale_14",
+      "target": "src_exceptions_hardrejecterror"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_rationale_26",
+      "target": "src_exceptions_schemavalidationerror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/config/settings.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_config_settings_py",
+      "target": "config_settings_settings"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/config/settings.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_settings_settings",
+      "target": "basesettings"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/utils/logging_config.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_utils_logging_config_py",
+      "target": "utils_logging_config_get_logger"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/utils/logging_config.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_utils_logging_config_py",
+      "target": "utils_logging_config_setup_logging"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_py",
+      "target": "config_schema_user"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_py",
+      "target": "config_schema_candidate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_py",
+      "target": "config_schema_matchresult"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_rationale_14",
+      "target": "config_schema_candidate"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_rationale_20",
+      "target": "config_schema_matchresult"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/extraction.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_extraction_py",
+      "target": "engine_extraction_extract_data"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/extraction.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_extraction_rationale_5",
+      "target": "engine_extraction_extract_data"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/reasoning.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_reasoning_py",
+      "target": "engine_reasoning_get_llm_judgment"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/reasoning.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_reasoning_rationale_5",
+      "target": "engine_reasoning_get_llm_judgment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/scoring.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_scoring_py",
+      "target": "engine_scoring_calculate_score"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/scoring.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_scoring_rationale_5",
+      "target": "engine_scoring_calculate_score"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "916f3cb0cbebe3e76ff8d82b9609af19eb58020b"
+}

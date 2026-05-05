@@ -1,0 +1,75 @@
+{
+    "doc": {
+        "id": "SYNTH002VERMA001",
+        "aka": [
+            { "name": "M.S. Verma" },
+            { "name": "Mohit Verma" }
+        ],
+        "name": "M.S. Verma",
+        "media": [
+            {
+                "url": "https://www.thehindu.com/fake/delhi-ca-tax-fraud",
+                "date": "2023-09-08T00:00:00Z",
+                "title": "Delhi CA accused of facilitating offshore tax evasion scheme",
+                "snippet": "A Delhi-based chartered accountant operating under the initials M.S. Verma has been named in an income tax department investigation for allegedly helping clients route funds through shell companies in the Cayman Islands. The CA, believed to be in his late 30s and practising from a Connaught Place address, is accused of preparing false audit reports. The department confirmed that letters were issued to M.S. Verma's registered office in Delhi."
+            },
+            {
+                "url": "https://www.livemint.com/fake/it-dept-probe-verma",
+                "date": "2023-11-14T00:00:00Z",
+                "title": "IT Department names Mohit Verma in offshore evasion ring",
+                "snippet": "The Income Tax Department has widened its probe to include Mohit Verma, a CA based in New Delhi, who is believed to be the same individual previously referenced as M.S. Verma in earlier investigation filings. Verma, whose date of birth records at the Institute of Chartered Accountants list the year 1985, is suspected of preparing false balance sheets for at least three high-net-worth clients. His office is registered in the Connaught Place area of Delhi."
+            }
+        ],
+        "types": [
+            "adverse-media",
+            "adverse-media-v2-financial-aml-cft",
+            "adverse-media-v2-fraud-linked"
+        ],
+        "fields": [
+            {
+                "name": "Country",
+                "value": "India",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "name": "Original Country Text",
+                "value": "India",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "tag": "date_of_birth",
+                "name": "Date of Birth",
+                "value": "1985",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "name": "Address",
+                "value": "Connaught Place, New Delhi, Delhi",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "tag": "country_names",
+                "name": "Countries",
+                "value": "India"
+            }
+        ],
+        "sources": [
+            "complyadvantage-adverse-media"
+        ],
+        "keywords": [],
+        "created_utc": "2023-09-08T10:00:00Z",
+        "entity_type": "person",
+        "source_notes": {
+            "complyadvantage-adverse-media": {
+                "name": "ComplyAdvantage Adverse Media",
+                "aml_types": ["adverse-media", "adverse-media-v2-financial-aml-cft", "adverse-media-v2-fraud-linked"],
+                "country_codes": ["IN"]
+            }
+        },
+        "last_updated_utc": "2023-11-14T08:00:00Z"
+    },
+    "score": 0.5,
+    "match_types": ["name_variations_removal", "equivalent_aka"],
+    "match_status": "potential_match",
+    "is_whitelisted": false
+}

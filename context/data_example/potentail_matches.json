@@ -1,0 +1,587 @@
+NOTE - its an example of what kind of data was come.
+
+=== EXAMPLE 1 ===
+
+{
+  "doc": {
+    "id": "QGKQEUB32E3R2R7",
+    "aka": [
+      {
+        "name": "David James"
+      }
+    ],
+    "name": "David James",
+    "media": [
+      {
+        "url": "https://www.essexlive.news/news/essex-news/greenpeace-activists-tried-prevent-crime-7779225",
+        "date": "2022-11-03T00:00:00Z",
+        "title": "Greenpeace activists 'tried to prevent a crime' by blocking Russian oil tanker coming to Essex terminal - Essex Live",
+        "snippet": "Ten people, aged between 27 and 72, have all denied one count each of obstructing or disrupting a person engaged in lawful activity. Benji Bailes, 38, of Cambridge, Gloucestershire, Michael Grant, 62, of Rosewell, Midlothian, Kim Harrison, 38, of Oldham, Greater Manchester, Benjamin Hearne-Salter, 41, of Kashmir Road, London, David James, 62, of Bromfelde Road, London, Ian Mills, 56, of Chippenham, Wiltshire, Zoe Pontida, 32, of Oxford, Henry Rayner, 28, of Ivanhoe Road, London, Lyndall Stein, 72, of Surrey Row, London, and Rhiannon Wood, 27, of Southampton, Hampshire, are standing trial today (November 3) and tomorrow (November 4). Prosecuting, Monali Raleraskar told the court the key issue of the trial is whether the navigator terminal where the protest took place was conducting a lawful activity."
+      }
+    ],
+    "types": [
+      "adverse-media",
+      "adverse-media-v2-other-minor"
+    ],
+    "fields": [
+      {
+        "name": "Country",
+        "value": "United Kingdom",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "name": "Original Country Text",
+        "value": "United Kingdom",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "tag": "date_of_birth",
+        "name": "Date of Birth",
+        "value": "1960",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "tag": "country_names",
+        "name": "Countries",
+        "value": "United Kingdom"
+      }
+    ],
+    "sources": [
+      "complyadvantage-adverse-media"
+    ],
+    "keywords": [],
+    "created_utc": "2023-11-22T23:27:14Z",
+    "entity_type": "person",
+    "source_notes": {
+      "complyadvantage-adverse-media": {
+        "name": "ComplyAdvantage Adverse Media",
+        "aml_types": [
+          "adverse-media",
+          "adverse-media-v2-other-minor"
+        ],
+        "country_codes": [
+          "GB"
+        ]
+      }
+    },
+    "last_updated_utc": "2023-11-22T23:27:14Z"
+  },
+  "score": 0.1,
+  "match_types": [
+    "name_exact",
+    "name_variations_removal"
+  ],
+  "match_status": "potential_match",
+  "is_whitelisted": false
+}
+
+=== EXAMPLE 2 ===
+
+{
+  "doc": {
+    "id": "9MEHSAOULQNVRR4",
+    "aka": [
+      {
+        "name": "Vance Edward Jay"
+      },
+      {
+        "name": "Vance Jay"
+      }
+    ],
+    "name": "Vance Jay",
+    "media": [
+      {
+        "url": "https://www.alcontacto.com.mx/wp-json/wp/v2/posts/236152",
+        "title": "(no title)",
+        "snippet": "Jay y sus amigos llevaban camisas con el lema \"Black Lives Matter\" estampado por delante y \"Somos hombres WI\", por detrás. Lo que más le molestó de lo sucedido en Kenosha, dijo Jay, is que el joven blanco acusado de disparar y matar a dos personas durante las protestas del martes por la noche \"pudo caminar hasta la policía sin ni siquiera ser detenido\". Es algo que indigna a muchos participantes."
+      },
+      {
+        "url": "https://www.elmostrador.cl/noticias/mundo/2020/08/29/marcha-en-washington-contra-el-racismo-hito-historico-en-estados-unidos/",
+        "date": "2020-08-29T00:00:00Z",
+        "title": "Marcha en Washington contra el racismo: hito histórico en Estados Unidos - El Mostrador",
+        "snippet": "Jay y sus amigos llevaban camisas con el lema \"Black Lives Matter\" estampado por delante y \"Somos hombres WI\", por detrás. Lo que más le molestó de lo sucedido en Kenosha, dijo Jay, is que el joven blanco acusado de disparar y matar a dos personas durante las protestas del martes por la noche \"pudo caminar hasta la policía sin ni siquiera ser detenido\". Es algo que indigna a muchos participantes."
+      },
+      {
+        "url": "https://www.dw.com/es/marcha-en-washington-contra-el-racismo-hito-hist%C3%B3rico-en-estados-unidos/a-54750461",
+        "title": "Marcha en Washington contra el racismo: hito histórico en Estados Unidos | Derechos Humanos | DW | 29.08.2020",
+        "snippet": "Jay y sus amigos llevaban camisas con el lema \"Black Lives Matter\" estampado por delante y \"Somos hombres WI\", por detrás. Lo que más le molestó de lo sucedido en Kenosha, dijo Jay, is que el joven blanco acusado de disparar y matar a dos personas durante las protestas del martes por la noche \"pudo caminar hasta la policía sin ni siquiera ser detenido\". Es algo que indigna a muchos participantes."
+      },
+      {
+        "url": "https://www.boliviaentusmanos.com/noticias/internacional/365210/marcha-en-washington-contra-el-racismo-hito-historico-en-estados-unidos.html",
+        "date": "2020-08-29T00:00:00Z",
+        "title": "Marcha en Washington contra el racismo: hito histórico en Estados Unidos | boliviaentusmanos",
+        "snippet": "Jay y sus amigos llevaban camisas con el lema \"Black Lives Matter\" estampado por delante y \"Somos hombres WI\", por detrás. Lo que más le molestó de lo sucedido en Kenosha, dijo Jay, is que el joven blanco acusado de disparar y matar a dos personas durante las protestas del martes por la noche \"pudo caminar hasta la policía sin ni siquiera ser detenido\". Es algo que indigna a muchos participantes."
+      }
+    ],
+    "types": [
+      "adverse-media",
+      "adverse-media-v2-violence-aml-cft",
+      "warning"
+    ],
+    "fields": [
+      {
+        "name": "Place of Birth",
+        "value": "Sudan",
+        "source": "united-states-idaho-non-compliant-sex-offenders"
+      },
+      {
+        "name": "Original Place of Birth Text",
+        "value": "SD",
+        "source": "united-states-idaho-non-compliant-sex-offenders"
+      },
+      {
+        "tag": "date_of_birth",
+        "name": "Date of Birth",
+        "value": "1957-11-08",
+        "source": "united-states-idaho-non-compliant-sex-offenders"
+      },
+      {
+        "name": "Gender",
+        "value": "male",
+        "source": "united-states-idaho-non-compliant-sex-offenders"
+      },
+      {
+        "name": "Address",
+        "value": "3550 S 2100 E WENDELL ID 83355-3529 GOODING COUNTY",
+        "source": "united-states-idaho-non-compliant-sex-offenders"
+      },
+      {
+        "name": "Enforcement Agency",
+        "value": "Idaho State Police",
+        "source": "united-states-idaho-non-compliant-sex-offenders"
+      },
+      {
+        "name": "Country",
+        "value": "Bolivia",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "name": "Enforcement Type",
+        "value": "Non-compliant Sex Offender",
+        "source": "united-states-idaho-non-compliant-sex-offenders"
+      },
+      {
+        "name": "Eye Color",
+        "value": "BLUE",
+        "source": "united-states-idaho-non-compliant-sex-offenders"
+      },
+      {
+        "name": "Original Country Text",
+        "value": "Bolivia, Chile, Germany, Mexico",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "name": "Country",
+        "value": "Chile",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "name": "Hair Color",
+        "value": "GRAY OR PARTIALLY GRAY",
+        "source": "united-states-idaho-non-compliant-sex-offenders"
+      },
+      {
+        "name": "Country",
+        "value": "Germany",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "name": "Height",
+        "value": "6 ft 01 in",
+        "source": "united-states-idaho-non-compliant-sex-offenders"
+      },
+      {
+        "name": "Country",
+        "value": "Mexico",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "name": "Race",
+        "value": "WHITE",
+        "source": "united-states-idaho-non-compliant-sex-offenders"
+      },
+      {
+        "tag": "related_url",
+        "name": "Related URL",
+        "value": "https://isp.idaho.gov/sor_id/SOR?id=27017&sz=400",
+        "source": "united-states-idaho-non-compliant-sex-offenders"
+      },
+      {
+        "name": "Weight",
+        "value": "200 lbs",
+        "source": "united-states-idaho-non-compliant-sex-offenders"
+      },
+      {
+        "name": "Locationurl",
+        "value": "https://isp.idaho.gov/sor_id/SOR?id=27017&sz=400",
+        "source": "united-states-idaho-non-compliant-sex-offenders"
+      },
+      {
+        "tag": "country_names",
+        "name": "Countries",
+        "value": "Bolivia, Chile, Germany, Mexico, Sudan"
+      }
+    ],
+    "sources": [
+      "complyadvantage-adverse-media",
+      "united-states-idaho-non-compliant-sex-offenders"
+    ],
+    "keywords": [],
+    "created_utc": "2020-09-02T05:11:21Z",
+    "entity_type": "person",
+    "source_notes": {
+      "complyadvantage-adverse-media": {
+        "name": "ComplyAdvantage Adverse Media",
+        "aml_types": [
+          "adverse-media",
+          "adverse-media-v2-violence-aml-cft"
+        ],
+        "country_codes": [
+          "BO",
+          "CL",
+          "DE",
+          "MX"
+        ]
+      },
+      "united-states-idaho-non-compliant-sex-offenders": {
+        "url": "https://isp.idaho.gov/sor_id/SOR?form=6&typ=noncomp&page=1&sz=400",
+        "name": "United States Idaho State Police Non-compliant Sex Offenders",
+        "aml_types": [
+          "warning"
+        ],
+        "country_codes": [
+          "SD"
+        ],
+        "listing_ended_utc": "2024-10-31T00:00:00Z",
+        "listing_started_utc": "2022-04-15T00:00:00Z"
+      }
+    },
+    "last_updated_utc": "2024-10-31T08:02:29Z"
+  },
+  "score": 0.1,
+  "match_types": [
+    "equivalent_aka",
+    "name_variations_removal"
+  ],
+  "match_status": "potential_match",
+  "is_whitelisted": false
+}
+
+=== EXAMPLE 3 ===
+
+{
+  "doc": {
+    "id": "291YAOZIQ68KZNY",
+    "aka": [
+      {
+        "name": "David James"
+      }
+    ],
+    "name": "David James",
+    "media": [
+      {
+        "url": "https://www.nevadaappeal.com/news/2016/oct/03/man-arrested-in-ranchos-stabbing/",
+        "title": "Man arrested in Ranchos stabbing | Serving Carson City for over 150 years",
+        "snippet": "A Gardnerville man is being held on $150,000 bail in connection with a stabbing at a Gardnerville Ranchos liquor store on Friday evening. David James, 51, was booked into Minden Jail on charges of attempted murder, battery with a deadly weapon and burglary. The name of the victim, who was flown to Renown Regional Medical Center with a chest wound, was not released."
+      }
+    ],
+    "types": [
+      "adverse-media",
+      "adverse-media-v2-violence-aml-cft"
+    ],
+    "fields": [
+      {
+        "name": "Country",
+        "value": "United States",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "name": "Original Country Text",
+        "value": "United States",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "tag": "country_names",
+        "name": "Countries",
+        "value": "United States"
+      }
+    ],
+    "sources": [
+      "complyadvantage-adverse-media"
+    ],
+    "keywords": [],
+    "created_utc": "2025-01-05T02:07:08Z",
+    "entity_type": "person",
+    "source_notes": {
+      "complyadvantage-adverse-media": {
+        "name": "ComplyAdvantage Adverse Media",
+        "aml_types": [
+          "adverse-media",
+          "adverse-media-v2-violence-aml-cft"
+        ],
+        "country_codes": [
+          "US"
+        ]
+      }
+    },
+    "last_updated_utc": "2025-01-05T02:07:08Z"
+  },
+  "score": 0.3,
+  "match_types": [
+    "name_exact",
+    "name_variations_removal"
+  ],
+  "match_status": "potential_match",
+  "is_whitelisted": false
+}
+
+=== EXAMPLE 4 ===
+
+{
+  "doc": {
+    "id": "GQRN9W6Y979WJLG",
+    "aka": [
+      {
+        "name": "Jake Dorn"
+      },
+      {
+        "name": "Jake van Dorn"
+      }
+    ],
+    "name": "Jake van Dorn",
+    "media": [
+      {
+        "url": "http://www.spokesman.com/stories/2005/apr/30/earning-another-chance/",
+        "date": "2009-06-30T00:00:00Z",
+        "title": "Earning another chance | The Spokesman-Review",
+        "snippet": "But this earnest 18-year-old high school student has seen more trouble and hardship than many men his senior. Dorn is a former methamphetamine addict. He first smoked pot in third grade and tried meth in fifth."
+      },
+      {
+        "url": "https://wn.com/Ramada",
+        "date": "2018-11-15T00:00:00Z",
+        "title": "Ramada",
+        "snippet": ": Jake Van Dorn is a businessman from the American heartland who shares strong Calvinist convictions with most of his countrymen. His teenage daughter is missing from her church youth convention trip to California and Van Dorn hires a private investigator to find her."
+      }
+    ],
+    "types": [
+      "adverse-media",
+      "adverse-media-v2-other-minor"
+    ],
+    "fields": [
+      {
+        "name": "Country",
+        "value": "United States",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "name": "Original Country Text",
+        "value": "United States",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "name": "Country",
+        "value": "Venezuela",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "tag": "country_names",
+        "name": "Countries",
+        "value": "United States, Venezuela"
+      }
+    ],
+    "sources": [
+      "complyadvantage-adverse-media"
+    ],
+    "keywords": [],
+    "created_utc": "2016-08-29T05:14:35Z",
+    "entity_type": "person",
+    "source_notes": {
+      "complyadvantage-adverse-media": {
+        "name": "ComplyAdvantage Adverse Media",
+        "aml_types": [
+          "adverse-media",
+          "adverse-media-v2-other-minor"
+        ],
+        "country_codes": [
+          "US",
+          "VE"
+        ]
+      }
+    },
+    "last_updated_utc": "2021-11-21T17:40:04Z"
+  },
+  "score": 0.2,
+  "match_types": [
+    "unknown"
+  ],
+  "match_status": "potential_match",
+  "is_whitelisted": false
+}
+
+=== EXAMPLE 5 ===
+
+{
+  "doc": {
+    "id": "O03P3W86VROFSPK",
+    "aka": [
+      {
+        "name": "Sandeep Golechha"
+      }
+    ],
+    "name": "Sandeep Golechha",
+    "media": [
+      {
+        "url": "https://www.wired-gov.net/wg/news.nsf/articles/Belgravia+waste+crook+forced+to+pay+1.4m+compensation+23022026092000",
+        "date": "2026-02-23T00:00:00Z",
+        "title": "Belgravia waste crook forced to pay £1.4m compensation",
+        "snippet": "However, the loads were actually diverted to unlicensed dumps around the country. It is alleged that an associate, Sandeep Golechha, 55, of Wheatley Close, Barnet, north London, helped to falsify weighbridge documents to cover up the illegal acts. The £100,000 in compensation to be paid by Datta relates to the dumping at the former Sulzer Dowding Mills factory site in Middlesbrough, as well as the Middleton Nature Reserve, at Heysham, in Lancashire, which also gets £30,000 for its future management."
+      },
+      {
+        "url": "https://www.gov.uk/government/news/belgravia-waste-crook-forced-to-pay-14m-compensation",
+        "date": "2026-02-20T00:00:00Z",
+        "title": "Belgravia waste crook forced to pay £1.4m compensation - GOV.UK",
+        "snippet": "However, the loads were actually diverted to unlicensed dumps around the country. It is alleged that an associate, Sandeep Golechha, 55, of Wheatley Close, Barnet, north London, helped to falsify weighbridge documents to cover up the illegal acts. The £100,000 in compensation to be paid by Datta relates to the dumping at the former Sulzer Dowding Mills factory site in Middlesbrough, as well as the Middleton Nature Reserve, at Heysham, in Lancashire, which also gets £30,000 for its future management."
+      },
+      {
+        "url": "https://www.dailymail.co.uk/news/article-15576995/Company-boss-dumped-4-000-tonnes-waste-England-compensation.html",
+        "date": "2026-02-20T00:00:00Z",
+        "title": "Company boss who dumped 4,000 tonnes of illegal waste on farms, at a manor house and nature reserve at 16 sites across England is ordered to pay £1.4m | Daily Mail Online",
+        "snippet": "No environmental permit or valid exemption was in place at any of the sites, which were spread across Lincolnshire, Cambridgeshire, Lancashire, Kent, Surrey, Rutland and Middlesborough. It is alleged that an associate, Sandeep Golechha, 55, from London, helped to falsify weighbridge documents to cover up the illegal acts. The case, heard at Birmingham crown court, also saw two others prosecuted."
+      },
+      {
+        "url": "https://www.kentonline.co.uk/thanet/news/criminal-ordered-to-pay-1-4m-after-dumping-4-000-tonnes-of-336841/",
+        "date": "2026-02-23T00:00:00Z",
+        "title": "Criminal ordered to pay £1.4m after dumping 4,000 tonnes of rubbish including in Margate",
+        "snippet": "Warrants for the arrest of two further men remain active. It is alleged that Sandeep Golechha acted as an associate in the crimes, helping to falsify weighbridge documents in an attempt to cover up the illegal activity. Emma Reynolds, environment secretary, said"
+      },
+      {
+        "url": "https://www.thetimes.com/article/customs-incompetent-over-trial-lnnvtzz0k56",
+        "date": "2005-06-25T00:00:00Z",
+        "title": "Customs 'incompetent over trial'",
+        "snippet": "A £100-million fraud trial against five Manchester businessmen collapsed last month because of \"muddle, incompetence and lack of frankness\" by Customs & Excise in disclosing evidence to defence lawyers, a judge said. Arif Chandoo, Amjad Baig, Sandeep Golechha, Aqeel Ali and Mohamed Kamal Uddin stood accused of a fraud that involved importing mobile telephones from elsewhere in the European Union to a company that then vanished owing £100million in VAT. Mr Justice Crane said that the trial at Southwark Crown Court collapsed"
+      },
+      {
+        "url": "https://www.thetimes.co.uk/edition/news/customs-incompetent-over-trial-lnnvtzz0k56",
+        "date": "2005-06-25T00:00:00Z",
+        "title": "Customs 'incompetent over trial' | The Times",
+        "snippet": "A £100-million fraud trial against five Manchester businessmen collapsed last month because of \"muddle, incompetence and lack of frankness\" by Customs & Excise in disclosing evidence to defence lawyers, a judge said. Arif Chandoo, Amjad Baig, Sandeep Golechha, Aqeel Ali and Mohamed Kamal Uddin stood accused of a fraud that involved importing mobile telephones from elsewhere in the European Union to a company that then vanished owing £100million in VAT. Mr Justice Crane said that the trial at Southwark Crown Court collapsed"
+      },
+      {
+        "url": "https://www.birminghammail.co.uk/news/midlands-news/millionaire-dubbed-bitcoin-bulldog-ran-33468841",
+        "date": "2026-02-22T00:00:00Z",
+        "title": "Millionaire dubbed the 'Bitcoin Bulldog' ran massive nationwide-wide illegal dumping empire - Birmingham Live",
+        "snippet": "Emma Viner, Enforcement and Investigations Manager in the Environment Agency's National Environmental Crime Unit, stated the agency is \"glad to see the perpetrators brought to justice\". Arrest warrants remain active for Sandeep Golechha, 53, of Wheatley Close, London, and Jason Newman, of no fixed abode."
+      },
+      {
+        "url": "https://www.examinerlive.co.uk/news/uk-world-news/self-styled-bitcoin-bulldog-living-33468811",
+        "date": "2026-02-22T00:00:00Z",
+        "title": "Self-styled 'Bitcoin Bulldog' living in £5m mansion behind firm dumping waste across UK - Yorkshire Live",
+        "snippet": "Emma Viner, Enforcement and Investigations Manager in the Environment Agency's National Environmental Crime Unit, stated that the agency is \"glad to see the perpetrators brought to justice\". Arrest warrants remain active for Sandeep Golechha, 53, of Wheatley Close, London, and Jason Newman, of no fixed abode. Did you know you can make Yorkshire Live a preferred source of Yorkshire news in Google, which will mean you get more of our breaking news, exclusives, and must-read stories straight away?"
+      },
+      {
+        "url": "https://www.wired-gov.net/wg/news.nsf/articles/Serial+waste+crook+forced+to+pay+over+1.4+million+for+widespread+illegal+dumping+19022026121000",
+        "date": "2026-02-19T00:00:00Z",
+        "title": "Serial waste crook forced to pay over £1.4 million for widespread illegal dumping",
+        "snippet": "However, the loads were actually diverted to unlicensed dumps around the country. It is alleged that an associate, Sandeep Golechha, 55, of Wheatley Close, London, helped to falsify weighbridge documents to cover up the illegal acts. The £100,000 in compensation to be paid by Datta relates to the dumping at the former Sulzer Dowding Mills Factory site in Middlesbrough, as well as the Middleton Nature Reserve in Lancashire."
+      },
+      {
+        "url": "https://uk.news.yahoo.com/waste-crime-boss-targeted-lancashire-122542889.html",
+        "date": "2026-02-19T00:00:00Z",
+        "title": "Waste crime boss who targeted Lancashire nature reserve and mill to pay £1.4m after dumping spree",
+        "snippet": "However, the loads were actually diverted to unlicensed dumps around the country. It is alleged that an associate, Sandeep Golechha, 55, of Wheatley Close, London, helped to falsify weighbridge documents to cover up the illegal acts. The £100,000 in compensation to be paid by Datta relates to the dumping at the Middleton Nature Reserve, as well as the former Sulzer Dowding Mills Factory site in Middlesbrough."
+      }
+    ],
+    "types": [
+      "adverse-media",
+      "adverse-media-v2-fraud-linked",
+      "adverse-media-v2-other-minor",
+      "fitness-probity"
+    ],
+    "fields": [
+      {
+        "name": "Activation Date",
+        "value": "11/1/2016",
+        "source": "india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-chennai"
+      },
+      {
+        "name": "Enforcement Agency",
+        "value": "Ministry of Corporate Affairs India",
+        "source": "india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-chennai"
+      },
+      {
+        "name": "Enforcement Type",
+        "value": "Disqualified",
+        "source": "india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-chennai"
+      },
+      {
+        "name": "Identification Number",
+        "value": "DIN: 3208006",
+        "source": "india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-chennai"
+      },
+      {
+        "name": "Other Info",
+        "value": "The entity is disqualified to be a director by the Ministry of Corporate Affairs India.",
+        "source": "india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-chennai"
+      },
+      {
+        "name": "Termination Date",
+        "value": "31/10/2021",
+        "source": "india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-chennai"
+      },
+      {
+        "name": "Country",
+        "value": "United Kingdom",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "name": "Original Country Text",
+        "value": "United Kingdom",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "tag": "date_of_birth",
+        "name": "Date of Birth",
+        "value": "1971",
+        "source": "complyadvantage-adverse-media"
+      },
+      {
+        "tag": "country_names",
+        "name": "Countries",
+        "value": "United Kingdom"
+      }
+    ],
+    "sources": [
+      "complyadvantage-adverse-media",
+      "india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-chennai"
+    ],
+    "keywords": [],
+    "created_utc": "2017-10-31T04:58:19Z",
+    "entity_type": "person",
+    "source_notes": {
+      "complyadvantage-adverse-media": {
+        "name": "ComplyAdvantage Adverse Media",
+        "aml_types": [
+          "adverse-media",
+          "adverse-media-v2-fraud-linked",
+          "adverse-media-v2-other-minor"
+        ],
+        "country_codes": [
+          "GB"
+        ]
+      },
+      "india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-chennai": {
+        "url": "http://www.mca.gov.in/MinistryV2/disqualifieddirectorslist.html",
+        "name": "India Ministry of Corporate Affairs List of Disqualified Directors Section 164 Chennai (Suspended)",
+        "aml_types": [
+          "fitness-probity"
+        ],
+        "listing_started_utc": "2019-12-17T00:00:00Z"
+      }
+    },
+    "last_updated_utc": "2026-02-24T17:03:01Z"
+  },
+  "score": 0.7,
+  "match_types": [
+    "name_exact"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+    "doc": {
+        "id": "SYNTH005MEHTA001",
+        "aka": [
+            { "name": "Arjun Mehta" }
+        ],
+        "name": "Arjun Mehta",
+        "media": [
+            {
+                "url": "https://www.hindustantimes.com/fake/mumbai-chit-fund-scam",
+                "date": "2022-07-19T00:00:00Z",
+                "title": "Mumbai woman Arjun Mehta named in chit-fund fraud case",
+                "snippet": "Arjun Mehta, 64, a Mumbai-based financial operator, has been named as a primary accused in a chit-fund fraud case involving approximately Rs 4 crore collected from low-income depositors in the eastern suburbs. Mehta, who is female, operated three unregistered chit fund schemes under different names from an office in Dadar, Mumbai. Investigators confirmed her date of birth as March 22, 1958. She has been issued a non-bailable warrant by the Metropolitan Magistrate's court."
+            },
+            {
+                "url": "https://www.mumbaimirror.com/fake/mehta-chit-fund-arrest",
+                "date": "2022-09-05T00:00:00Z",
+                "title": "Police arrest Arjun Mehta in chit-fund scam after month-long hunt",
+                "snippet": "Mumbai Police on Monday arrested Arjun Mehta, a 64-year-old woman from Dadar, Mumbai, in connection with a multi-crore chit-fund fraud. Mehta, born 1958, had been evading arrest for over a month after absconding from her registered address in Mumbai, Maharashtra. She is accused of defrauding approximately 300 depositors. Her associates claim she used the alias 'Arjun' for business dealings, though official records list her gender as female."
+            }
+        ],
+        "types": [
+            "adverse-media",
+            "adverse-media-v2-financial-difficulty",
+            "adverse-media-v2-fraud-linked",
+            "warning"
+        ],
+        "fields": [
+            {
+                "name": "Country",
+                "value": "India",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "name": "Original Country Text",
+                "value": "India",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "tag": "date_of_birth",
+                "name": "Date of Birth",
+                "value": "1958-03-22",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "name": "Gender",
+                "value": "female",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "name": "Address",
+                "value": "Dadar, Mumbai, Maharashtra",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "tag": "country_names",
+                "name": "Countries",
+                "value": "India"
+            }
+        ],
+        "sources": [
+            "complyadvantage-adverse-media"
+        ],
+        "keywords": [],
+        "created_utc": "2022-07-19T10:00:00Z",
+        "entity_type": "person",
+        "source_notes": {
+            "complyadvantage-adverse-media": {
+                "name": "ComplyAdvantage Adverse Media",
+                "aml_types": ["adverse-media", "adverse-media-v2-financial-difficulty", "adverse-media-v2-fraud-linked"],
+                "country_codes": ["IN"]
+            }
+        },
+        "last_updated_utc": "2022-09-05T08:00:00Z"
+    },
+    "score": 0.3,
+    "match_types": ["name_exact"],
+    "match_status": "potential_match",
+    "is_whitelisted": false
+}

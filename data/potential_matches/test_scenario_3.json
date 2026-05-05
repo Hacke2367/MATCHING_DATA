@@ -1,0 +1,67 @@
+{
+    "doc": {
+        "id": "SYNTH003PILLAI01",
+        "aka": [
+            { "name": "Arun Pillai" }
+        ],
+        "name": "Arun Pillai",
+        "media": [
+            {
+                "url": "https://www.mid-day.com/fake/mumbai-student-protest-2005",
+                "date": "2005-08-14T00:00:00Z",
+                "title": "Mumbai student charged for leading unauthorised rally outside Mantralaya",
+                "snippet": "Arun Pillai, 19, of Colaba, Mumbai, was charged under Section 144 of the CrPC on Saturday after he led a group of approximately 40 students in an unauthorised protest outside the state secretariat. Pillai, a first-year law student at Government Law College, was briefly detained before being released on bail. Police sources confirmed the incident took place on August 13 and that a First Information Report has been registered. His family resides in the Colaba area of south Mumbai, Maharashtra."
+            },
+            {
+                "url": "https://timesofindia.indiatimes.com/fake/mumbai-protest-bail-2005",
+                "date": "2005-08-18T00:00:00Z",
+                "title": "Law student Arun Pillai gets bail in Mantralaya protest case",
+                "snippet": "The Esplanade Magistrate Court on Thursday granted bail to Arun Pillai, the 19-year-old law student from Mumbai who was arrested last week following a student demonstration. Pillai's lawyer argued that the protest was peaceful and that his client had no prior criminal record. The case has drawn attention to restrictions on student assembly in Mumbai, Maharashtra. Pillai is expected to resume studies at Government Law College pending trial."
+            }
+        ],
+        "types": [
+            "adverse-media",
+            "adverse-media-v2-other-minor"
+        ],
+        "fields": [
+            {
+                "name": "Country",
+                "value": "India",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "name": "Original Country Text",
+                "value": "India",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "name": "Address",
+                "value": "Colaba, Mumbai, Maharashtra",
+                "source": "complyadvantage-adverse-media"
+            },
+            {
+                "tag": "country_names",
+                "name": "Countries",
+                "value": "India"
+            }
+        ],
+        "sources": [
+            "complyadvantage-adverse-media"
+        ],
+        "keywords": [],
+        "created_utc": "2005-08-14T12:00:00Z",
+        "entity_type": "person",
+        "source_notes": {
+            "complyadvantage-adverse-media": {
+                "name": "ComplyAdvantage Adverse Media",
+                "aml_types": ["adverse-media", "adverse-media-v2-other-minor"],
+                "country_codes": ["IN"]
+            }
+        },
+        "last_updated_utc": "2005-08-18T10:00:00Z"
+    },
+    "score": 0.4,
+    "match_types": ["name_variations_removal"],
+    "match_status": "potential_match",
+    "is_whitelisted": false
+}

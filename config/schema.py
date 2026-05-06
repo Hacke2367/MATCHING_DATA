@@ -6,7 +6,7 @@ All models are immutable (frozen=True) and reject unknown fields (extra="forbid"
 Downstream consumers must assert SCHEMA_VERSION before using these models.
 """
 import datetime
-from typing import Annotated, Dict, List, Literal
+from typing import Annotated, Dict, List, Literal, Optional
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 SCHEMA_VERSION: str = "1.1.0"
@@ -183,3 +183,66 @@ class CandidateIdentity(BaseModel):
         if invalid:
             raise ValueError(f"Non-canonical identifier keys: {invalid}")
         return v
+
+
+# ── Dashboard output contract ─────────────────────────────────────────────────
+
+class ComparisonRow(BaseModel):
+    """One side-by-side field row for the dashboard comparison table."""
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    field_label: str
+    user_value: Optional[str] = None
+    candidate_value: Optional[str] = None
+    match_status: Literal["match", "partial", "mismatch", "missing"]
+    contribution_pts: Optional[float] = None
+
+
+class MatchCard(BaseModel):
+    """Per-candidate render contract. scoring.py populates every field;
+    the dashboard layer is purely presentational."""
+    model_config = ConfigDict(extra="forbid", frozen=False)  # mutable for Tier-2 update
+
+    candidate_id: str
+    candidate_summary: CandidateIdentity
+
+    # Verdict
+    verdict_color: Literal["GREEN", "AMBER", "RED"]
+    verdict_label: str
+    final_confidence: float = Field(..., ge=0.0, le=1.0)
+    tier_reached: Literal[
+        "tier_0_id_match",
+        "tier_1_heuristic",
+        "tier_1_hard_reject",
+        "tier_2_llm_judge",
+    ]
+
+    # Symmetric comparison table
+    comparison_rows: List[ComparisonRow]
+
+    # Scoring audit trail
+    score_breakdown: Dict[str, float]   # {"id": x, "name": x, "age": x, "location": x}
+    weights_used: Dict[str, float]      # weights for scoreable fields only
+    denominator: float                  # sum of weights_used (excludes missing fields)
+    penalties_applied: List[str]
+
+    # Narrative justification
+    identity_summary: str
+    llm_verdict: Optional[str] = None
+
+    # Risk intelligence
+    risk_types: List[str] = Field(default_factory=list)
+    source_provenance: List[str] = Field(default_factory=list)
+
+    # Operational flags
+    flags: List[str] = Field(default_factory=list)
+
+
+class BatchScoreResult(BaseModel):
+    """Top-level engine output for one Source A vs N Source B run."""
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    user: CandidateIdentity
+    best_match: Optional[MatchCard] = None          # highest final_confidence; None if all hard-rejected
+    all_results: List[MatchCard]                    # sorted desc by final_confidence, includes hard-rejects
+    run_metadata: Dict[str, str]                    # engine_version, run_started_utc, run_finished_utc, candidate_count

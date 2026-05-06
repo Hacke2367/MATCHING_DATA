@@ -1,0 +1,3231 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "exceptions.py",
+      "file_type": "code",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L1",
+      "id": "backend_src_exceptions_py",
+      "community": 4,
+      "norm_label": "exceptions.py"
+    },
+    {
+      "label": "MatchingEngineError",
+      "file_type": "code",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L1",
+      "id": "src_exceptions_matchingengineerror",
+      "community": 4,
+      "norm_label": "matchingengineerror"
+    },
+    {
+      "label": "Exception",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "exception",
+      "community": 2,
+      "norm_label": "exception"
+    },
+    {
+      "label": "ExtractionError",
+      "file_type": "code",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L5",
+      "id": "src_exceptions_extractionerror",
+      "community": 4,
+      "norm_label": "extractionerror"
+    },
+    {
+      "label": "ScoringError",
+      "file_type": "code",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L9",
+      "id": "src_exceptions_scoringerror",
+      "community": 4,
+      "norm_label": "scoringerror"
+    },
+    {
+      "label": "HardRejectError",
+      "file_type": "code",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L13",
+      "id": "src_exceptions_hardrejecterror",
+      "community": 4,
+      "norm_label": "hardrejecterror"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L19",
+      "id": "src_exceptions_hardrejecterror_init",
+      "community": 4,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": "SchemaValidationError",
+      "file_type": "code",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L25",
+      "id": "src_exceptions_schemavalidationerror",
+      "community": 4,
+      "norm_label": "schemavalidationerror"
+    },
+    {
+      "label": "Base class for all engine errors.",
+      "file_type": "rationale",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L2",
+      "id": "src_exceptions_rationale_2",
+      "community": 4,
+      "norm_label": "base class for all engine errors."
+    },
+    {
+      "label": "Raised when LLM extraction of a snippet or user KYC fails.",
+      "file_type": "rationale",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L6",
+      "id": "src_exceptions_rationale_6",
+      "community": 4,
+      "norm_label": "raised when llm extraction of a snippet or user kyc fails."
+    },
+    {
+      "label": "Raised when the scoring layer encounters an unrecoverable state.",
+      "file_type": "rationale",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L10",
+      "id": "src_exceptions_rationale_10",
+      "community": 4,
+      "norm_label": "raised when the scoring layer encounters an unrecoverable state."
+    },
+    {
+      "label": "Raised when a hard-reject gate fires (gender mismatch, age conflict, etc.).",
+      "file_type": "rationale",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L14",
+      "id": "src_exceptions_rationale_14",
+      "community": 4,
+      "norm_label": "raised when a hard-reject gate fires (gender mismatch, age conflict, etc.)."
+    },
+    {
+      "label": "Raised when a CandidateIdentity or MatchCard fails Pydantic validation.",
+      "file_type": "rationale",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L26",
+      "id": "src_exceptions_rationale_26",
+      "community": 4,
+      "norm_label": "raised when a candidateidentity or matchcard fails pydantic validation."
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "backend/src/__init__.py",
+      "source_location": "L1",
+      "id": "backend_src_init_py",
+      "community": 11,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "settings.py",
+      "file_type": "code",
+      "source_file": "backend/src/config/settings.py",
+      "source_location": "L1",
+      "id": "backend_src_config_settings_py",
+      "community": 7,
+      "norm_label": "settings.py"
+    },
+    {
+      "label": "Settings",
+      "file_type": "code",
+      "source_file": "backend/src/config/settings.py",
+      "source_location": "L4",
+      "id": "config_settings_settings",
+      "community": 7,
+      "norm_label": "settings"
+    },
+    {
+      "label": "BaseSettings",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "basesettings",
+      "community": 7,
+      "norm_label": "basesettings"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "backend/src/config/__init__.py",
+      "source_location": "L1",
+      "id": "backend_src_config_init_py",
+      "community": 12,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "logging_config.py",
+      "file_type": "code",
+      "source_file": "backend/src/utils/logging_config.py",
+      "source_location": "L1",
+      "id": "backend_src_utils_logging_config_py",
+      "community": 8,
+      "norm_label": "logging_config.py"
+    },
+    {
+      "label": "get_logger()",
+      "file_type": "code",
+      "source_file": "backend/src/utils/logging_config.py",
+      "source_location": "L7",
+      "id": "utils_logging_config_get_logger",
+      "community": 8,
+      "norm_label": "get_logger()"
+    },
+    {
+      "label": "setup_logging()",
+      "file_type": "code",
+      "source_file": "backend/src/utils/logging_config.py",
+      "source_location": "L11",
+      "id": "utils_logging_config_setup_logging",
+      "community": 8,
+      "norm_label": "setup_logging()"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "backend/src/utils/__init__.py",
+      "source_location": "L1",
+      "id": "backend_src_utils_init_py",
+      "community": 13,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "schema.py",
+      "file_type": "code",
+      "source_file": "config/schema.py",
+      "source_location": "L1",
+      "id": "config_schema_py",
+      "community": 5,
+      "norm_label": "schema.py"
+    },
+    {
+      "label": "_utc_today()",
+      "file_type": "code",
+      "source_file": "config/schema.py",
+      "source_location": "L32",
+      "id": "config_schema_utc_today",
+      "community": 5,
+      "norm_label": "_utc_today()"
+    },
+    {
+      "label": "GeoLocation",
+      "file_type": "code",
+      "source_file": "config/schema.py",
+      "source_location": "L36",
+      "id": "config_schema_geolocation",
+      "community": 0,
+      "norm_label": "geolocation"
+    },
+    {
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "basemodel",
+      "community": 0,
+      "norm_label": "basemodel"
+    },
+    {
+      "label": "SnippetIdentity",
+      "file_type": "code",
+      "source_file": "config/schema.py",
+      "source_location": "L47",
+      "id": "config_schema_snippetidentity",
+      "community": 0,
+      "norm_label": "snippetidentity"
+    },
+    {
+      "label": "no_future_dates()",
+      "file_type": "code",
+      "source_file": "config/schema.py",
+      "source_location": "L88",
+      "id": "config_schema_no_future_dates",
+      "community": 5,
+      "norm_label": "no_future_dates()"
+    },
+    {
+      "label": "CandidateIdentity",
+      "file_type": "code",
+      "source_file": "config/schema.py",
+      "source_location": "L104",
+      "id": "config_schema_candidateidentity",
+      "community": 0,
+      "norm_label": "candidateidentity"
+    },
+    {
+      "label": "validate_identifier_keys()",
+      "file_type": "code",
+      "source_file": "config/schema.py",
+      "source_location": "L181",
+      "id": "config_schema_validate_identifier_keys",
+      "community": 5,
+      "norm_label": "validate_identifier_keys()"
+    },
+    {
+      "label": "Symmetric Identity Schema v1.1.0  Canonical Pydantic v2 data contracts for the",
+      "file_type": "rationale",
+      "source_file": "config/schema.py",
+      "source_location": "L1",
+      "id": "config_schema_rationale_1",
+      "community": 5,
+      "norm_label": "symmetric identity schema v1.1.0  canonical pydantic v2 data contracts for the"
+    },
+    {
+      "label": "One instance per media[] article. LLM-extracted from Source B snippet text.",
+      "file_type": "rationale",
+      "source_file": "config/schema.py",
+      "source_location": "L48",
+      "id": "config_schema_rationale_48",
+      "community": 0,
+      "norm_label": "one instance per media[] article. llm-extracted from source b snippet text."
+    },
+    {
+      "label": "Aggregated symmetric form used by the scoring engine.      Both Source A (User",
+      "file_type": "rationale",
+      "source_file": "config/schema.py",
+      "source_location": "L105",
+      "id": "config_schema_rationale_105",
+      "community": 0,
+      "norm_label": "aggregated symmetric form used by the scoring engine.      both source a (user"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "config/__init__.py",
+      "source_location": "L1",
+      "id": "config_init_py",
+      "community": 14,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "extraction.py",
+      "file_type": "code",
+      "source_file": "engine/extraction.py",
+      "source_location": "L1",
+      "id": "engine_extraction_py",
+      "community": 6,
+      "norm_label": "extraction.py"
+    },
+    {
+      "label": "extract_user()",
+      "file_type": "code",
+      "source_file": "engine/extraction.py",
+      "source_location": "L55",
+      "id": "engine_extraction_extract_user",
+      "community": 1,
+      "norm_label": "extract_user()"
+    },
+    {
+      "label": "extract_candidate()",
+      "file_type": "code",
+      "source_file": "engine/extraction.py",
+      "source_location": "L141",
+      "id": "engine_extraction_extract_candidate",
+      "community": 1,
+      "norm_label": "extract_candidate()"
+    },
+    {
+      "label": "_aggregate()",
+      "file_type": "code",
+      "source_file": "engine/extraction.py",
+      "source_location": "L221",
+      "id": "engine_extraction_aggregate",
+      "community": 6,
+      "norm_label": "_aggregate()"
+    },
+    {
+      "label": "Extraction Engine \u2014 Asymmetry Bridge (Spec 02c).  Transforms raw Source A (KYC",
+      "file_type": "rationale",
+      "source_file": "engine/extraction.py",
+      "source_location": "L1",
+      "id": "engine_extraction_rationale_1",
+      "community": 6,
+      "norm_label": "extraction engine \u2014 asymmetry bridge (spec 02c).  transforms raw source a (kyc"
+    },
+    {
+      "label": "Map a KYC JSON file directly to CandidateIdentity without LLM involvement.",
+      "file_type": "rationale",
+      "source_file": "engine/extraction.py",
+      "source_location": "L56",
+      "id": "engine_extraction_rationale_56",
+      "community": 1,
+      "norm_label": "map a kyc json file directly to candidateidentity without llm involvement."
+    },
+    {
+      "label": "Extract and aggregate a candidate's media snippets into CandidateIdentity.",
+      "file_type": "rationale",
+      "source_file": "engine/extraction.py",
+      "source_location": "L146",
+      "id": "engine_extraction_rationale_146",
+      "community": 1,
+      "norm_label": "extract and aggregate a candidate's media snippets into candidateidentity."
+    },
+    {
+      "label": "Consolidate validated snippets into a single CandidateIdentity.",
+      "file_type": "rationale",
+      "source_file": "engine/extraction.py",
+      "source_location": "L222",
+      "id": "engine_extraction_rationale_222",
+      "community": 6,
+      "norm_label": "consolidate validated snippets into a single candidateidentity."
+    },
+    {
+      "label": "llm_service.py",
+      "file_type": "code",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L1",
+      "id": "engine_llm_service_py",
+      "community": 2,
+      "norm_label": "llm_service.py"
+    },
+    {
+      "label": "ExtractionError",
+      "file_type": "code",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L26",
+      "id": "engine_llm_service_extractionerror",
+      "community": 2,
+      "norm_label": "extractionerror"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L33",
+      "id": "engine_llm_service_extractionerror_init",
+      "community": 2,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": "call_gemini()",
+      "file_type": "code",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L38",
+      "id": "engine_llm_service_call_gemini",
+      "community": 2,
+      "norm_label": "call_gemini()"
+    },
+    {
+      "label": "LLM Connectivity Bridge \u2014 Gemini 1.5 Flash (google-genai SDK).  Handles connec",
+      "file_type": "rationale",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L1",
+      "id": "engine_llm_service_rationale_1",
+      "community": 2,
+      "norm_label": "llm connectivity bridge \u2014 gemini 1.5 flash (google-genai sdk).  handles connec"
+    },
+    {
+      "label": "Raised by the LLM service layer on connectivity or de-serialization failures.",
+      "file_type": "rationale",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L27",
+      "id": "engine_llm_service_rationale_27",
+      "community": 2,
+      "norm_label": "raised by the llm service layer on connectivity or de-serialization failures."
+    },
+    {
+      "label": "Call Gemini 1.5 Flash with temperature=0 and JSON output enforcement.      Arg",
+      "file_type": "rationale",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L43",
+      "id": "engine_llm_service_rationale_43",
+      "community": 2,
+      "norm_label": "call gemini 1.5 flash with temperature=0 and json output enforcement.      arg"
+    },
+    {
+      "label": "prompts.py",
+      "file_type": "code",
+      "source_file": "engine/prompts.py",
+      "source_location": "L1",
+      "id": "engine_prompts_py",
+      "community": 3,
+      "norm_label": "prompts.py"
+    },
+    {
+      "label": "build_extraction_user_message()",
+      "file_type": "code",
+      "source_file": "engine/prompts.py",
+      "source_location": "L142",
+      "id": "engine_prompts_build_extraction_user_message",
+      "community": 3,
+      "norm_label": "build_extraction_user_message()"
+    },
+    {
+      "label": "LLM Instruction Vault \u2014 Extraction Engine Prompts.  All prompt strings are cen",
+      "file_type": "rationale",
+      "source_file": "engine/prompts.py",
+      "source_location": "L1",
+      "id": "engine_prompts_rationale_1",
+      "community": 3,
+      "norm_label": "llm instruction vault \u2014 extraction engine prompts.  all prompt strings are cen"
+    },
+    {
+      "label": "Format the per-call user turn (anchor + single snippet) as a JSON string.",
+      "file_type": "rationale",
+      "source_file": "engine/prompts.py",
+      "source_location": "L143",
+      "id": "engine_prompts_rationale_143",
+      "community": 3,
+      "norm_label": "format the per-call user turn (anchor + single snippet) as a json string."
+    },
+    {
+      "label": "reasoning.py",
+      "file_type": "code",
+      "source_file": "engine/reasoning.py",
+      "source_location": "L1",
+      "id": "engine_reasoning_py",
+      "community": 9,
+      "norm_label": "reasoning.py"
+    },
+    {
+      "label": "get_llm_judgment()",
+      "file_type": "code",
+      "source_file": "engine/reasoning.py",
+      "source_location": "L4",
+      "id": "engine_reasoning_get_llm_judgment",
+      "community": 9,
+      "norm_label": "get_llm_judgment()"
+    },
+    {
+      "label": "Get LLM final judgment and reasoning",
+      "file_type": "rationale",
+      "source_file": "engine/reasoning.py",
+      "source_location": "L5",
+      "id": "engine_reasoning_rationale_5",
+      "community": 9,
+      "norm_label": "get llm final judgment and reasoning"
+    },
+    {
+      "label": "scoring.py",
+      "file_type": "code",
+      "source_file": "engine/scoring.py",
+      "source_location": "L1",
+      "id": "engine_scoring_py",
+      "community": 10,
+      "norm_label": "scoring.py"
+    },
+    {
+      "label": "calculate_score()",
+      "file_type": "code",
+      "source_file": "engine/scoring.py",
+      "source_location": "L4",
+      "id": "engine_scoring_calculate_score",
+      "community": 10,
+      "norm_label": "calculate_score()"
+    },
+    {
+      "label": "Calculate weighted score based on extracted features",
+      "file_type": "rationale",
+      "source_file": "engine/scoring.py",
+      "source_location": "L5",
+      "id": "engine_scoring_rationale_5",
+      "community": 10,
+      "norm_label": "calculate weighted score based on extracted features"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "engine/__init__.py",
+      "source_location": "L1",
+      "id": "engine_init_py",
+      "community": 15,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "test_extraction.py",
+      "file_type": "code",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L1",
+      "id": "tests_test_extraction_py",
+      "community": 1,
+      "norm_label": "test_extraction.py"
+    },
+    {
+      "label": "test_snippet_indices_filter_llm_input()",
+      "file_type": "code",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L50",
+      "id": "tests_test_extraction_test_snippet_indices_filter_llm_input",
+      "community": 1,
+      "norm_label": "test_snippet_indices_filter_llm_input()"
+    },
+    {
+      "label": "test_snippet_index_1_not_processed_when_only_0_requested()",
+      "file_type": "code",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L67",
+      "id": "tests_test_extraction_test_snippet_index_1_not_processed_when_only_0_requested",
+      "community": 1,
+      "norm_label": "test_snippet_index_1_not_processed_when_only_0_requested()"
+    },
+    {
+      "label": "test_sub_district_propagates_to_candidate_identity()",
+      "file_type": "code",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L83",
+      "id": "tests_test_extraction_test_sub_district_propagates_to_candidate_identity",
+      "community": 1,
+      "norm_label": "test_sub_district_propagates_to_candidate_identity()"
+    },
+    {
+      "label": "test_identity_summary_within_200_chars()",
+      "file_type": "code",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L94",
+      "id": "tests_test_extraction_test_identity_summary_within_200_chars",
+      "community": 1,
+      "norm_label": "test_identity_summary_within_200_chars()"
+    },
+    {
+      "label": "test_future_article_date_discards_snippet_returns_none()",
+      "file_type": "code",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L108",
+      "id": "tests_test_extraction_test_future_article_date_discards_snippet_returns_none",
+      "community": 1,
+      "norm_label": "test_future_article_date_discards_snippet_returns_none()"
+    },
+    {
+      "label": "test_extract_user_full_mapping()",
+      "file_type": "code",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L125",
+      "id": "tests_test_extraction_test_extract_user_full_mapping",
+      "community": 1,
+      "norm_label": "test_extract_user_full_mapping()"
+    },
+    {
+      "label": "test_extract_user_name_tokens()",
+      "file_type": "code",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L144",
+      "id": "tests_test_extraction_test_extract_user_name_tokens",
+      "community": 1,
+      "norm_label": "test_extract_user_name_tokens()"
+    },
+    {
+      "label": "test_extract_user_aliases_include_middle_name()",
+      "file_type": "code",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L150",
+      "id": "tests_test_extraction_test_extract_user_aliases_include_middle_name",
+      "community": 1,
+      "norm_label": "test_extract_user_aliases_include_middle_name()"
+    },
+    {
+      "label": "test_all_snippets_fail_returns_none()",
+      "file_type": "code",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L158",
+      "id": "tests_test_extraction_test_all_snippets_fail_returns_none",
+      "community": 1,
+      "norm_label": "test_all_snippets_fail_returns_none()"
+    },
+    {
+      "label": "test_extract_candidate_default_n_cap()",
+      "file_type": "code",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L170",
+      "id": "tests_test_extraction_test_extract_candidate_default_n_cap",
+      "community": 1,
+      "norm_label": "test_extract_candidate_default_n_cap()"
+    },
+    {
+      "label": "Acceptance criteria tests for engine/extraction.py (Spec 02c \u00a75 \u2014 mock-based).",
+      "file_type": "rationale",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L1",
+      "id": "tests_test_extraction_rationale_1",
+      "community": 1,
+      "norm_label": "acceptance criteria tests for engine/extraction.py (spec 02c \u00a75 \u2014 mock-based)."
+    },
+    {
+      "label": "With snippet_indices=[0, 2] on a 2-item media[], only index 0 is sent to LLM.",
+      "file_type": "rationale",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L51",
+      "id": "tests_test_extraction_rationale_51",
+      "community": 1,
+      "norm_label": "with snippet_indices=[0, 2] on a 2-item media[], only index 0 is sent to llm."
+    },
+    {
+      "label": "When snippet_indices=[0], snippet at index 1 must never be sent to LLM.",
+      "file_type": "rationale",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L68",
+      "id": "tests_test_extraction_rationale_68",
+      "community": 1,
+      "norm_label": "when snippet_indices=[0], snippet at index 1 must never be sent to llm."
+    },
+    {
+      "label": "sub_district from the LLM extraction must appear in CandidateIdentity.locations.",
+      "file_type": "rationale",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L84",
+      "id": "tests_test_extraction_rationale_84",
+      "community": 1,
+      "norm_label": "sub_district from the llm extraction must appear in candidateidentity.locations."
+    },
+    {
+      "label": "identity_summary in the resulting CandidateIdentity must be \u2264200 characters.",
+      "file_type": "rationale",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L95",
+      "id": "tests_test_extraction_rationale_95",
+      "community": 1,
+      "norm_label": "identity_summary in the resulting candidateidentity must be \u2264200 characters."
+    },
+    {
+      "label": "A LLM response with a future article_date must fail Pydantic validation.     Wh",
+      "file_type": "rationale",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L109",
+      "id": "tests_test_extraction_rationale_109",
+      "community": 1,
+      "norm_label": "a llm response with a future article_date must fail pydantic validation.     wh"
+    },
+    {
+      "label": "extract_user must correctly map test_scenario_1 KYC JSON to CandidateIdentity.",
+      "file_type": "rationale",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L126",
+      "id": "tests_test_extraction_rationale_126",
+      "community": 1,
+      "norm_label": "extract_user must correctly map test_scenario_1 kyc json to candidateidentity."
+    },
+    {
+      "label": "extract_user must split full_name into name_tokens.",
+      "file_type": "rationale",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L145",
+      "id": "tests_test_extraction_rationale_145",
+      "community": 1,
+      "norm_label": "extract_user must split full_name into name_tokens."
+    },
+    {
+      "label": "extract_user must include middle_name in aliases.",
+      "file_type": "rationale",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L151",
+      "id": "tests_test_extraction_rationale_151",
+      "community": 1,
+      "norm_label": "extract_user must include middle_name in aliases."
+    },
+    {
+      "label": "If every snippet fails Pydantic validation, extract_candidate must return None.",
+      "file_type": "rationale",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L159",
+      "id": "tests_test_extraction_rationale_159",
+      "community": 1,
+      "norm_label": "if every snippet fails pydantic validation, extract_candidate must return none."
+    },
+    {
+      "label": "With no snippet_indices, extract_candidate must process at most 5 snippets.",
+      "file_type": "rationale",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L171",
+      "id": "tests_test_extraction_rationale_171",
+      "community": 1,
+      "norm_label": "with no snippet_indices, extract_candidate must process at most 5 snippets."
+    },
+    {
+      "label": "test_llm_service.py",
+      "file_type": "code",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L1",
+      "id": "tests_test_llm_service_py",
+      "community": 2,
+      "norm_label": "test_llm_service.py"
+    },
+    {
+      "label": "test_raises_auth_failure_when_no_api_key()",
+      "file_type": "code",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L13",
+      "id": "tests_test_llm_service_test_raises_auth_failure_when_no_api_key",
+      "community": 2,
+      "norm_label": "test_raises_auth_failure_when_no_api_key()"
+    },
+    {
+      "label": "test_strips_json_markdown_fences()",
+      "file_type": "code",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L25",
+      "id": "tests_test_llm_service_test_strips_json_markdown_fences",
+      "community": 2,
+      "norm_label": "test_strips_json_markdown_fences()"
+    },
+    {
+      "label": "test_strips_plain_markdown_fences()",
+      "file_type": "code",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L40",
+      "id": "tests_test_llm_service_test_strips_plain_markdown_fences",
+      "community": 2,
+      "norm_label": "test_strips_plain_markdown_fences()"
+    },
+    {
+      "label": "test_rate_limit_exhausted_after_3_retries()",
+      "file_type": "code",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L57",
+      "id": "tests_test_llm_service_test_rate_limit_exhausted_after_3_retries",
+      "community": 2,
+      "norm_label": "test_rate_limit_exhausted_after_3_retries()"
+    },
+    {
+      "label": "test_non_rate_limit_client_error_propagates()",
+      "file_type": "code",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L73",
+      "id": "tests_test_llm_service_test_non_rate_limit_client_error_propagates",
+      "community": 2,
+      "norm_label": "test_non_rate_limit_client_error_propagates()"
+    },
+    {
+      "label": "test_json_parse_failure_raises_pre_validation_error()",
+      "file_type": "code",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L90",
+      "id": "tests_test_llm_service_test_json_parse_failure_raises_pre_validation_error",
+      "community": 2,
+      "norm_label": "test_json_parse_failure_raises_pre_validation_error()"
+    },
+    {
+      "label": "test_returns_parsed_dict_on_valid_json()",
+      "file_type": "code",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L107",
+      "id": "tests_test_llm_service_test_returns_parsed_dict_on_valid_json",
+      "community": 2,
+      "norm_label": "test_returns_parsed_dict_on_valid_json()"
+    },
+    {
+      "label": "Tests for engine/llm_service.py (Spec 02b \u2014 mock-based, no live API calls).",
+      "file_type": "rationale",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L1",
+      "id": "tests_test_llm_service_rationale_1",
+      "community": 2,
+      "norm_label": "tests for engine/llm_service.py (spec 02b \u2014 mock-based, no live api calls)."
+    },
+    {
+      "label": "call_gemini must raise ExtractionError(code='AUTH_FAILURE') when GEMINI_API_KEY",
+      "file_type": "rationale",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L14",
+      "id": "tests_test_llm_service_rationale_14",
+      "community": 2,
+      "norm_label": "call_gemini must raise extractionerror(code='auth_failure') when gemini_api_key"
+    },
+    {
+      "label": "call_gemini must strip ```json ... ``` fences before JSON parsing.",
+      "file_type": "rationale",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L26",
+      "id": "tests_test_llm_service_rationale_26",
+      "community": 2,
+      "norm_label": "call_gemini must strip ```json ... ``` fences before json parsing."
+    },
+    {
+      "label": "Handles ``` without 'json' language specifier.",
+      "file_type": "rationale",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L41",
+      "id": "tests_test_llm_service_rationale_41",
+      "community": 2,
+      "norm_label": "handles ``` without 'json' language specifier."
+    },
+    {
+      "label": "call_gemini must retry exactly 3 times and then raise RATE_LIMIT_EXHAUSTED.",
+      "file_type": "rationale",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L58",
+      "id": "tests_test_llm_service_rationale_58",
+      "community": 2,
+      "norm_label": "call_gemini must retry exactly 3 times and then raise rate_limit_exhausted."
+    },
+    {
+      "label": "Non-429 ClientErrors (e.g. 400 bad request) must propagate immediately without r",
+      "file_type": "rationale",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L74",
+      "id": "tests_test_llm_service_rationale_74",
+      "community": 2,
+      "norm_label": "non-429 clienterrors (e.g. 400 bad request) must propagate immediately without r"
+    },
+    {
+      "label": "call_gemini must raise ExtractionError(code='PRE_VALIDATION_PARSE_FAILURE') on i",
+      "file_type": "rationale",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L91",
+      "id": "tests_test_llm_service_rationale_91",
+      "community": 2,
+      "norm_label": "call_gemini must raise extractionerror(code='pre_validation_parse_failure') on i"
+    },
+    {
+      "label": "call_gemini must return a dict when Gemini returns clean JSON.",
+      "file_type": "rationale",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L108",
+      "id": "tests_test_llm_service_rationale_108",
+      "community": 2,
+      "norm_label": "call_gemini must return a dict when gemini returns clean json."
+    },
+    {
+      "label": "test_prompts.py",
+      "file_type": "code",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L1",
+      "id": "tests_test_prompts_py",
+      "community": 3,
+      "norm_label": "test_prompts.py"
+    },
+    {
+      "label": "test_prompt_version()",
+      "file_type": "code",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L9",
+      "id": "tests_test_prompts_test_prompt_version",
+      "community": 3,
+      "norm_label": "test_prompt_version()"
+    },
+    {
+      "label": "test_extraction_system_prompt_is_non_empty()",
+      "file_type": "code",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L13",
+      "id": "tests_test_prompts_test_extraction_system_prompt_is_non_empty",
+      "community": 3,
+      "norm_label": "test_extraction_system_prompt_is_non_empty()"
+    },
+    {
+      "label": "test_all_snippet_identity_required_fields_in_prompt()",
+      "file_type": "code",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L18",
+      "id": "tests_test_prompts_test_all_snippet_identity_required_fields_in_prompt",
+      "community": 3,
+      "norm_label": "test_all_snippet_identity_required_fields_in_prompt()"
+    },
+    {
+      "label": "test_all_canonical_identifier_keys_in_prompt()",
+      "file_type": "code",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L30",
+      "id": "tests_test_prompts_test_all_canonical_identifier_keys_in_prompt",
+      "community": 3,
+      "norm_label": "test_all_canonical_identifier_keys_in_prompt()"
+    },
+    {
+      "label": "test_all_snippet_flags_in_prompt()",
+      "file_type": "code",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L38",
+      "id": "tests_test_prompts_test_all_snippet_flags_in_prompt",
+      "community": 3,
+      "norm_label": "test_all_snippet_flags_in_prompt()"
+    },
+    {
+      "label": "test_prompt_forbids_projected_current_age()",
+      "file_type": "code",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L49",
+      "id": "tests_test_prompts_test_prompt_forbids_projected_current_age",
+      "community": 3,
+      "norm_label": "test_prompt_forbids_projected_current_age()"
+    },
+    {
+      "label": "test_build_extraction_user_message_round_trip()",
+      "file_type": "code",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L54",
+      "id": "tests_test_prompts_test_build_extraction_user_message_round_trip",
+      "community": 3,
+      "norm_label": "test_build_extraction_user_message_round_trip()"
+    },
+    {
+      "label": "test_build_extraction_user_message_is_string()",
+      "file_type": "code",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L66",
+      "id": "tests_test_prompts_test_build_extraction_user_message_is_string",
+      "community": 3,
+      "norm_label": "test_build_extraction_user_message_is_string()"
+    },
+    {
+      "label": "Structural tests for engine/prompts.py (Spec 02a \u2014 no LLM calls).",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L1",
+      "id": "tests_test_prompts_rationale_1",
+      "community": 3,
+      "norm_label": "structural tests for engine/prompts.py (spec 02a \u2014 no llm calls)."
+    },
+    {
+      "label": "Every required SnippetIdentity field name must appear in the prompt text.",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L19",
+      "id": "tests_test_prompts_rationale_19",
+      "community": 3,
+      "norm_label": "every required snippetidentity field name must appear in the prompt text."
+    },
+    {
+      "label": "All 11 canonical identifier key names must appear in the prompt.",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L31",
+      "id": "tests_test_prompts_rationale_31",
+      "community": 3,
+      "norm_label": "all 11 canonical identifier key names must appear in the prompt."
+    },
+    {
+      "label": "All 4 SnippetFlag literals must appear in the prompt.",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L39",
+      "id": "tests_test_prompts_rationale_39",
+      "community": 3,
+      "norm_label": "all 4 snippetflag literals must appear in the prompt."
+    },
+    {
+      "label": "Prompt must explicitly forbid computing projected_current_age.",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L50",
+      "id": "tests_test_prompts_rationale_50",
+      "community": 3,
+      "norm_label": "prompt must explicitly forbid computing projected_current_age."
+    },
+    {
+      "label": "build_extraction_user_message must produce valid JSON that round-trips correctly",
+      "file_type": "rationale",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L55",
+      "id": "tests_test_prompts_rationale_55",
+      "community": 3,
+      "norm_label": "build_extraction_user_message must produce valid json that round-trips correctly"
+    },
+    {
+      "label": "test_schema.py",
+      "file_type": "code",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L1",
+      "id": "tests_test_schema_py",
+      "community": 0,
+      "norm_label": "test_schema.py"
+    },
+    {
+      "label": "test_schema_version()",
+      "file_type": "code",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L27",
+      "id": "tests_test_schema_test_schema_version",
+      "community": 0,
+      "norm_label": "test_schema_version()"
+    },
+    {
+      "label": "test_strict_int_rejects_string_age()",
+      "file_type": "code",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L33",
+      "id": "tests_test_schema_test_strict_int_rejects_string_age",
+      "community": 0,
+      "norm_label": "test_strict_int_rejects_string_age()"
+    },
+    {
+      "label": "test_strict_int_rejects_string_projected_age()",
+      "file_type": "code",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L46",
+      "id": "tests_test_schema_test_strict_int_rejects_string_projected_age",
+      "community": 0,
+      "norm_label": "test_strict_int_rejects_string_projected_age()"
+    },
+    {
+      "label": "test_geolocation_has_sub_district()",
+      "file_type": "code",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L60",
+      "id": "tests_test_schema_test_geolocation_has_sub_district",
+      "community": 0,
+      "norm_label": "test_geolocation_has_sub_district()"
+    },
+    {
+      "label": "test_geolocation_accepts_full_hierarchy()",
+      "file_type": "code",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L65",
+      "id": "tests_test_schema_test_geolocation_accepts_full_hierarchy",
+      "community": 0,
+      "norm_label": "test_geolocation_accepts_full_hierarchy()"
+    },
+    {
+      "label": "test_geolocation_rejects_extra_fields()",
+      "file_type": "code",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L79",
+      "id": "tests_test_schema_test_geolocation_rejects_extra_fields",
+      "community": 0,
+      "norm_label": "test_geolocation_rejects_extra_fields()"
+    },
+    {
+      "label": "test_parse_user_kyc_to_candidate_identity()",
+      "file_type": "code",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L87",
+      "id": "tests_test_schema_test_parse_user_kyc_to_candidate_identity",
+      "community": 0,
+      "norm_label": "test_parse_user_kyc_to_candidate_identity()"
+    },
+    {
+      "label": "test_parse_candidate_media_to_snippet_identity()",
+      "file_type": "code",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L125",
+      "id": "tests_test_schema_test_parse_candidate_media_to_snippet_identity",
+      "community": 0,
+      "norm_label": "test_parse_candidate_media_to_snippet_identity()"
+    },
+    {
+      "label": "test_frozen_prevents_field_mutation()",
+      "file_type": "code",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L156",
+      "id": "tests_test_schema_test_frozen_prevents_field_mutation",
+      "community": 0,
+      "norm_label": "test_frozen_prevents_field_mutation()"
+    },
+    {
+      "label": "test_frozen_prevents_alias_append()",
+      "file_type": "code",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L168",
+      "id": "tests_test_schema_test_frozen_prevents_alias_append",
+      "community": 0,
+      "norm_label": "test_frozen_prevents_alias_append()"
+    },
+    {
+      "label": "test_non_canonical_identifier_key_rejected()",
+      "file_type": "code",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L183",
+      "id": "tests_test_schema_test_non_canonical_identifier_key_rejected",
+      "community": 0,
+      "norm_label": "test_non_canonical_identifier_key_rejected()"
+    },
+    {
+      "label": "test_future_date_rejected_on_snippet()",
+      "file_type": "code",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L195",
+      "id": "tests_test_schema_test_future_date_rejected_on_snippet",
+      "community": 0,
+      "norm_label": "test_future_date_rejected_on_snippet()"
+    },
+    {
+      "label": "test_extra_fields_forbidden_on_candidate_identity()",
+      "file_type": "code",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L209",
+      "id": "tests_test_schema_test_extra_fields_forbidden_on_candidate_identity",
+      "community": 0,
+      "norm_label": "test_extra_fields_forbidden_on_candidate_identity()"
+    },
+    {
+      "label": "Acceptance criteria tests for config/schema.py (Feature Spec 01 v1.1.0).  Test",
+      "file_type": "rationale",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L1",
+      "id": "tests_test_schema_rationale_1",
+      "community": 0,
+      "norm_label": "acceptance criteria tests for config/schema.py (feature spec 01 v1.1.0).  test"
+    },
+    {
+      "label": "A string passed to an AgeBounded (strict int) field must raise ValidationError.",
+      "file_type": "rationale",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L34",
+      "id": "tests_test_schema_rationale_34",
+      "community": 0,
+      "norm_label": "a string passed to an agebounded (strict int) field must raise validationerror."
+    },
+    {
+      "label": "projected_current_age is also AgeBounded \u2014 must reject string input.",
+      "file_type": "rationale",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L47",
+      "id": "tests_test_schema_rationale_47",
+      "community": 0,
+      "norm_label": "projected_current_age is also agebounded \u2014 must reject string input."
+    },
+    {
+      "label": "sub_district must be a defined field in GeoLocation (CRITICAL for subset-matchin",
+      "file_type": "rationale",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L61",
+      "id": "tests_test_schema_rationale_61",
+      "community": 0,
+      "norm_label": "sub_district must be a defined field in geolocation (critical for subset-matchin"
+    },
+    {
+      "label": "GeoLocation must accept a fully-populated hierarchical instance.",
+      "file_type": "rationale",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L66",
+      "id": "tests_test_schema_rationale_66",
+      "community": 0,
+      "norm_label": "geolocation must accept a fully-populated hierarchical instance."
+    },
+    {
+      "label": "extra='forbid' must reject unknown fields.",
+      "file_type": "rationale",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L80",
+      "id": "tests_test_schema_rationale_80",
+      "community": 0,
+      "norm_label": "extra='forbid' must reject unknown fields."
+    },
+    {
+      "label": "CandidateIdentity must parse successfully from test_scenario_1 KYC data.",
+      "file_type": "rationale",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L88",
+      "id": "tests_test_schema_rationale_88",
+      "community": 0,
+      "norm_label": "candidateidentity must parse successfully from test_scenario_1 kyc data."
+    },
+    {
+      "label": "SnippetIdentity must parse successfully from test_scenario_1 media article.",
+      "file_type": "rationale",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L126",
+      "id": "tests_test_schema_rationale_126",
+      "community": 0,
+      "norm_label": "snippetidentity must parse successfully from test_scenario_1 media article."
+    },
+    {
+      "label": "Mutating any field on a frozen CandidateIdentity must raise ValidationError.",
+      "file_type": "rationale",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L157",
+      "id": "tests_test_schema_rationale_157",
+      "community": 0,
+      "norm_label": "mutating any field on a frozen candidateidentity must raise validationerror."
+    },
+    {
+      "label": "Even mutable containers on a frozen model must not be directly replaced.",
+      "file_type": "rationale",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L169",
+      "id": "tests_test_schema_rationale_169",
+      "community": 0,
+      "norm_label": "even mutable containers on a frozen model must not be directly replaced."
+    },
+    {
+      "label": "identifiers dict must reject keys not in CANONICAL_IDENTIFIER_KEYS.",
+      "file_type": "rationale",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L184",
+      "id": "tests_test_schema_rationale_184",
+      "community": 0,
+      "norm_label": "identifiers dict must reject keys not in canonical_identifier_keys."
+    },
+    {
+      "label": "article_date in the future must raise ValidationError (UTC-aware).",
+      "file_type": "rationale",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L196",
+      "id": "tests_test_schema_rationale_196",
+      "community": 0,
+      "norm_label": "article_date in the future must raise validationerror (utc-aware)."
+    },
+    {
+      "label": "extra='forbid' must reject undefined fields on CandidateIdentity.",
+      "file_type": "rationale",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L210",
+      "id": "tests_test_schema_rationale_210",
+      "community": 0,
+      "norm_label": "extra='forbid' must reject undefined fields on candidateidentity."
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "tests/__init__.py",
+      "source_location": "L1",
+      "id": "tests_init_py",
+      "community": 16,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "User",
+      "file_type": "code",
+      "source_file": "config/schema.py",
+      "source_location": "L7",
+      "community": 5,
+      "norm_label": "user",
+      "id": "config_schema_user"
+    },
+    {
+      "label": "Candidate",
+      "file_type": "code",
+      "source_file": "config/schema.py",
+      "source_location": "L13",
+      "community": 5,
+      "norm_label": "candidate",
+      "id": "config_schema_candidate"
+    },
+    {
+      "label": "MatchResult",
+      "file_type": "code",
+      "source_file": "config/schema.py",
+      "source_location": "L19",
+      "community": 5,
+      "norm_label": "matchresult",
+      "id": "config_schema_matchresult"
+    },
+    {
+      "label": "Potential match candidate",
+      "file_type": "rationale",
+      "source_file": "config/schema.py",
+      "source_location": "L14",
+      "community": 5,
+      "norm_label": "potential match candidate",
+      "id": "config_schema_rationale_14"
+    },
+    {
+      "label": "Final matching result",
+      "file_type": "rationale",
+      "source_file": "config/schema.py",
+      "source_location": "L20",
+      "community": 5,
+      "norm_label": "final matching result",
+      "id": "config_schema_rationale_20"
+    },
+    {
+      "label": "extract_data()",
+      "file_type": "code",
+      "source_file": "engine/extraction.py",
+      "source_location": "L4",
+      "community": 6,
+      "norm_label": "extract_data()",
+      "id": "engine_extraction_extract_data"
+    },
+    {
+      "label": "Extract structured data from messy snippets",
+      "file_type": "rationale",
+      "source_file": "engine/extraction.py",
+      "source_location": "L5",
+      "community": 6,
+      "norm_label": "extract structured data from messy snippets",
+      "id": "engine_extraction_rationale_5"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_exceptions_py",
+      "target": "src_exceptions_matchingengineerror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_exceptions_py",
+      "target": "src_exceptions_extractionerror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_exceptions_py",
+      "target": "src_exceptions_scoringerror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_exceptions_py",
+      "target": "src_exceptions_hardrejecterror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_exceptions_py",
+      "target": "src_exceptions_schemavalidationerror"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_matchingengineerror",
+      "target": "exception"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_extractionerror",
+      "target": "src_exceptions_matchingengineerror"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_scoringerror",
+      "target": "src_exceptions_matchingengineerror"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_hardrejecterror",
+      "target": "src_exceptions_matchingengineerror"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_schemavalidationerror",
+      "target": "src_exceptions_matchingengineerror"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_rationale_2",
+      "target": "src_exceptions_matchingengineerror"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_llm_service_extractionerror",
+      "target": "exception"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_rationale_6",
+      "target": "src_exceptions_extractionerror"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_rationale_10",
+      "target": "src_exceptions_scoringerror"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_hardrejecterror",
+      "target": "src_exceptions_hardrejecterror_init"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_rationale_14",
+      "target": "src_exceptions_hardrejecterror"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/exceptions.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_exceptions_rationale_26",
+      "target": "src_exceptions_schemavalidationerror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/config/settings.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_config_settings_py",
+      "target": "config_settings_settings"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/config/settings.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_settings_settings",
+      "target": "basesettings"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/utils/logging_config.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_utils_logging_config_py",
+      "target": "utils_logging_config_get_logger"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/utils/logging_config.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_src_utils_logging_config_py",
+      "target": "utils_logging_config_setup_logging"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_py",
+      "target": "config_schema_utc_today"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_py",
+      "target": "config_schema_geolocation"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_py",
+      "target": "config_schema_snippetidentity"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L164",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_py",
+      "target": "config_schema_no_future_dates"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L104",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_py",
+      "target": "config_schema_candidateidentity"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L181",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_py",
+      "target": "config_schema_validate_identifier_keys"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_rationale_1",
+      "target": "config_schema_py"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_py",
+      "target": "config_schema_user"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_py",
+      "target": "config_schema_candidate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_py",
+      "target": "config_schema_matchresult"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_no_future_dates",
+      "target": "config_schema_utc_today"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_geolocation",
+      "target": "basemodel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "engine/extraction.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "engine_extraction_extract_user",
+      "target": "config_schema_geolocation"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_schema.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "tests_test_schema_test_geolocation_accepts_full_hierarchy",
+      "target": "config_schema_geolocation"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_schema.py",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "tests_test_schema_test_geolocation_rejects_extra_fields",
+      "target": "config_schema_geolocation"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_schema.py",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "tests_test_schema_test_parse_user_kyc_to_candidate_identity",
+      "target": "config_schema_geolocation"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_schema.py",
+      "source_location": "L141",
+      "weight": 1.0,
+      "source": "tests_test_schema_test_parse_candidate_media_to_snippet_identity",
+      "target": "config_schema_geolocation"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_snippetidentity",
+      "target": "basemodel"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L104",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_candidateidentity",
+      "target": "basemodel"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_rationale_48",
+      "target": "config_schema_snippetidentity"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "engine/extraction.py",
+      "source_location": "L194",
+      "weight": 1.0,
+      "source": "engine_extraction_extract_candidate",
+      "target": "config_schema_snippetidentity"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_schema.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "tests_test_schema_test_strict_int_rejects_string_age",
+      "target": "config_schema_snippetidentity"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_schema.py",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "tests_test_schema_test_parse_candidate_media_to_snippet_identity",
+      "target": "config_schema_snippetidentity"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_schema.py",
+      "source_location": "L199",
+      "weight": 1.0,
+      "source": "tests_test_schema_test_future_date_rejected_on_snippet",
+      "target": "config_schema_snippetidentity"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_rationale_105",
+      "target": "config_schema_candidateidentity"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "engine/extraction.py",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "engine_extraction_extract_user",
+      "target": "config_schema_candidateidentity"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "engine/extraction.py",
+      "source_location": "L342",
+      "weight": 1.0,
+      "source": "engine_extraction_aggregate",
+      "target": "config_schema_candidateidentity"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_schema.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "tests_test_schema_test_strict_int_rejects_string_projected_age",
+      "target": "config_schema_candidateidentity"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_schema.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "tests_test_schema_test_parse_user_kyc_to_candidate_identity",
+      "target": "config_schema_candidateidentity"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_schema.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "tests_test_schema_test_frozen_prevents_field_mutation",
+      "target": "config_schema_candidateidentity"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_schema.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "tests_test_schema_test_frozen_prevents_alias_append",
+      "target": "config_schema_candidateidentity"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_schema.py",
+      "source_location": "L186",
+      "weight": 1.0,
+      "source": "tests_test_schema_test_non_canonical_identifier_key_rejected",
+      "target": "config_schema_candidateidentity"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_schema.py",
+      "source_location": "L212",
+      "weight": 1.0,
+      "source": "tests_test_schema_test_extra_fields_forbidden_on_candidate_identity",
+      "target": "config_schema_candidateidentity"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/extraction.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_extraction_py",
+      "target": "engine_extraction_extract_user"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/extraction.py",
+      "source_location": "L141",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_extraction_py",
+      "target": "engine_extraction_extract_candidate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/extraction.py",
+      "source_location": "L221",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_extraction_py",
+      "target": "engine_extraction_aggregate"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/extraction.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_extraction_rationale_1",
+      "target": "engine_extraction_py"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/extraction.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_extraction_py",
+      "target": "engine_extraction_extract_data"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/extraction.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_extraction_rationale_56",
+      "target": "engine_extraction_extract_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_snippet_indices_filter_llm_input",
+      "target": "engine_extraction_extract_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_snippet_index_1_not_processed_when_only_0_requested",
+      "target": "engine_extraction_extract_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_sub_district_propagates_to_candidate_identity",
+      "target": "engine_extraction_extract_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_identity_summary_within_200_chars",
+      "target": "engine_extraction_extract_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_future_article_date_discards_snippet_returns_none",
+      "target": "engine_extraction_extract_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L127",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_extract_user_full_mapping",
+      "target": "engine_extraction_extract_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L146",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_extract_user_name_tokens",
+      "target": "engine_extraction_extract_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L152",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_extract_user_aliases_include_middle_name",
+      "target": "engine_extraction_extract_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_all_snippets_fail_returns_none",
+      "target": "engine_extraction_extract_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L172",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_extract_candidate_default_n_cap",
+      "target": "engine_extraction_extract_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/extraction.py",
+      "source_location": "L213",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_extraction_extract_candidate",
+      "target": "engine_extraction_aggregate"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/extraction.py",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_extraction_rationale_146",
+      "target": "engine_extraction_extract_candidate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "engine/extraction.py",
+      "source_location": "L190",
+      "weight": 1.0,
+      "source": "engine_extraction_extract_candidate",
+      "target": "engine_prompts_build_extraction_user_message"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "engine/extraction.py",
+      "source_location": "L193",
+      "weight": 1.0,
+      "source": "engine_extraction_extract_candidate",
+      "target": "engine_llm_service_call_gemini"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_snippet_indices_filter_llm_input",
+      "target": "engine_extraction_extract_candidate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_snippet_index_1_not_processed_when_only_0_requested",
+      "target": "engine_extraction_extract_candidate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_sub_district_propagates_to_candidate_identity",
+      "target": "engine_extraction_extract_candidate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_identity_summary_within_200_chars",
+      "target": "engine_extraction_extract_candidate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_future_article_date_discards_snippet_returns_none",
+      "target": "engine_extraction_extract_candidate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L165",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_all_snippets_fail_returns_none",
+      "target": "engine_extraction_extract_candidate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L175",
+      "weight": 1.0,
+      "source": "tests_test_extraction_test_extract_candidate_default_n_cap",
+      "target": "engine_extraction_extract_candidate"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/extraction.py",
+      "source_location": "L222",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_extraction_rationale_222",
+      "target": "engine_extraction_aggregate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_llm_service_py",
+      "target": "engine_llm_service_extractionerror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_llm_service_py",
+      "target": "engine_llm_service_call_gemini"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_llm_service_rationale_1",
+      "target": "engine_llm_service_py"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_llm_service_extractionerror",
+      "target": "engine_llm_service_extractionerror_init"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_llm_service_call_gemini",
+      "target": "engine_llm_service_extractionerror"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_llm_service_rationale_27",
+      "target": "engine_llm_service_extractionerror"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/llm_service.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_llm_service_rationale_43",
+      "target": "engine_llm_service_call_gemini"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "tests_test_llm_service_test_raises_auth_failure_when_no_api_key",
+      "target": "engine_llm_service_call_gemini"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "tests_test_llm_service_test_strips_json_markdown_fences",
+      "target": "engine_llm_service_call_gemini"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "tests_test_llm_service_test_strips_plain_markdown_fences",
+      "target": "engine_llm_service_call_gemini"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "tests_test_llm_service_test_rate_limit_exhausted_after_3_retries",
+      "target": "engine_llm_service_call_gemini"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "tests_test_llm_service_test_non_rate_limit_client_error_propagates",
+      "target": "engine_llm_service_call_gemini"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "tests_test_llm_service_test_json_parse_failure_raises_pre_validation_error",
+      "target": "engine_llm_service_call_gemini"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "tests_test_llm_service_test_returns_parsed_dict_on_valid_json",
+      "target": "engine_llm_service_call_gemini"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/prompts.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_prompts_py",
+      "target": "engine_prompts_build_extraction_user_message"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/prompts.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_prompts_rationale_1",
+      "target": "engine_prompts_py"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/prompts.py",
+      "source_location": "L143",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_prompts_rationale_143",
+      "target": "engine_prompts_build_extraction_user_message"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "tests_test_prompts_test_build_extraction_user_message_round_trip",
+      "target": "engine_prompts_build_extraction_user_message"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "tests_test_prompts_test_build_extraction_user_message_is_string",
+      "target": "engine_prompts_build_extraction_user_message"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/reasoning.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_reasoning_py",
+      "target": "engine_reasoning_get_llm_judgment"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/reasoning.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_reasoning_rationale_5",
+      "target": "engine_reasoning_get_llm_judgment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/scoring.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_scoring_py",
+      "target": "engine_scoring_calculate_score"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/scoring.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_scoring_rationale_5",
+      "target": "engine_scoring_calculate_score"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_py",
+      "target": "tests_test_extraction_test_snippet_indices_filter_llm_input"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_py",
+      "target": "tests_test_extraction_test_snippet_index_1_not_processed_when_only_0_requested"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_py",
+      "target": "tests_test_extraction_test_sub_district_propagates_to_candidate_identity"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_py",
+      "target": "tests_test_extraction_test_identity_summary_within_200_chars"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_py",
+      "target": "tests_test_extraction_test_future_article_date_discards_snippet_returns_none"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_py",
+      "target": "tests_test_extraction_test_extract_user_full_mapping"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L144",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_py",
+      "target": "tests_test_extraction_test_extract_user_name_tokens"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L150",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_py",
+      "target": "tests_test_extraction_test_extract_user_aliases_include_middle_name"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_py",
+      "target": "tests_test_extraction_test_all_snippets_fail_returns_none"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_py",
+      "target": "tests_test_extraction_test_extract_candidate_default_n_cap"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_rationale_1",
+      "target": "tests_test_extraction_py"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_rationale_51",
+      "target": "tests_test_extraction_test_snippet_indices_filter_llm_input"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_rationale_68",
+      "target": "tests_test_extraction_test_snippet_index_1_not_processed_when_only_0_requested"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_rationale_84",
+      "target": "tests_test_extraction_test_sub_district_propagates_to_candidate_identity"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_rationale_95",
+      "target": "tests_test_extraction_test_identity_summary_within_200_chars"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L109",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_rationale_109",
+      "target": "tests_test_extraction_test_future_article_date_discards_snippet_returns_none"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L126",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_rationale_126",
+      "target": "tests_test_extraction_test_extract_user_full_mapping"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L145",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_rationale_145",
+      "target": "tests_test_extraction_test_extract_user_name_tokens"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L151",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_rationale_151",
+      "target": "tests_test_extraction_test_extract_user_aliases_include_middle_name"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L159",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_rationale_159",
+      "target": "tests_test_extraction_test_all_snippets_fail_returns_none"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_extraction.py",
+      "source_location": "L171",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_extraction_rationale_171",
+      "target": "tests_test_extraction_test_extract_candidate_default_n_cap"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_py",
+      "target": "tests_test_llm_service_test_raises_auth_failure_when_no_api_key"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_py",
+      "target": "tests_test_llm_service_test_strips_json_markdown_fences"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_py",
+      "target": "tests_test_llm_service_test_strips_plain_markdown_fences"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_py",
+      "target": "tests_test_llm_service_test_rate_limit_exhausted_after_3_retries"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_py",
+      "target": "tests_test_llm_service_test_non_rate_limit_client_error_propagates"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L90",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_py",
+      "target": "tests_test_llm_service_test_json_parse_failure_raises_pre_validation_error"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_py",
+      "target": "tests_test_llm_service_test_returns_parsed_dict_on_valid_json"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_rationale_1",
+      "target": "tests_test_llm_service_py"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_rationale_14",
+      "target": "tests_test_llm_service_test_raises_auth_failure_when_no_api_key"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_rationale_26",
+      "target": "tests_test_llm_service_test_strips_json_markdown_fences"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_rationale_41",
+      "target": "tests_test_llm_service_test_strips_plain_markdown_fences"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_rationale_58",
+      "target": "tests_test_llm_service_test_rate_limit_exhausted_after_3_retries"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_rationale_74",
+      "target": "tests_test_llm_service_test_non_rate_limit_client_error_propagates"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L91",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_rationale_91",
+      "target": "tests_test_llm_service_test_json_parse_failure_raises_pre_validation_error"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_llm_service.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_llm_service_rationale_108",
+      "target": "tests_test_llm_service_test_returns_parsed_dict_on_valid_json"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_prompts_py",
+      "target": "tests_test_prompts_test_prompt_version"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_prompts_py",
+      "target": "tests_test_prompts_test_extraction_system_prompt_is_non_empty"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_prompts_py",
+      "target": "tests_test_prompts_test_all_snippet_identity_required_fields_in_prompt"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_prompts_py",
+      "target": "tests_test_prompts_test_all_canonical_identifier_keys_in_prompt"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_prompts_py",
+      "target": "tests_test_prompts_test_all_snippet_flags_in_prompt"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_prompts_py",
+      "target": "tests_test_prompts_test_prompt_forbids_projected_current_age"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_prompts_py",
+      "target": "tests_test_prompts_test_build_extraction_user_message_round_trip"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_prompts_py",
+      "target": "tests_test_prompts_test_build_extraction_user_message_is_string"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_prompts_rationale_1",
+      "target": "tests_test_prompts_py"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_prompts_rationale_19",
+      "target": "tests_test_prompts_test_all_snippet_identity_required_fields_in_prompt"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_prompts_rationale_31",
+      "target": "tests_test_prompts_test_all_canonical_identifier_keys_in_prompt"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_prompts_rationale_39",
+      "target": "tests_test_prompts_test_all_snippet_flags_in_prompt"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_prompts_rationale_50",
+      "target": "tests_test_prompts_test_prompt_forbids_projected_current_age"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_prompts.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_prompts_rationale_55",
+      "target": "tests_test_prompts_test_build_extraction_user_message_round_trip"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_py",
+      "target": "tests_test_schema_test_schema_version"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_py",
+      "target": "tests_test_schema_test_strict_int_rejects_string_age"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_py",
+      "target": "tests_test_schema_test_strict_int_rejects_string_projected_age"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_py",
+      "target": "tests_test_schema_test_geolocation_has_sub_district"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_py",
+      "target": "tests_test_schema_test_geolocation_accepts_full_hierarchy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_py",
+      "target": "tests_test_schema_test_geolocation_rejects_extra_fields"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_py",
+      "target": "tests_test_schema_test_parse_user_kyc_to_candidate_identity"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_py",
+      "target": "tests_test_schema_test_parse_candidate_media_to_snippet_identity"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L156",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_py",
+      "target": "tests_test_schema_test_frozen_prevents_field_mutation"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L168",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_py",
+      "target": "tests_test_schema_test_frozen_prevents_alias_append"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L183",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_py",
+      "target": "tests_test_schema_test_non_canonical_identifier_key_rejected"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L195",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_py",
+      "target": "tests_test_schema_test_future_date_rejected_on_snippet"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L209",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_py",
+      "target": "tests_test_schema_test_extra_fields_forbidden_on_candidate_identity"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_rationale_1",
+      "target": "tests_test_schema_py"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_rationale_34",
+      "target": "tests_test_schema_test_strict_int_rejects_string_age"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_rationale_47",
+      "target": "tests_test_schema_test_strict_int_rejects_string_projected_age"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_rationale_61",
+      "target": "tests_test_schema_test_geolocation_has_sub_district"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_rationale_66",
+      "target": "tests_test_schema_test_geolocation_accepts_full_hierarchy"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_rationale_80",
+      "target": "tests_test_schema_test_geolocation_rejects_extra_fields"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_rationale_88",
+      "target": "tests_test_schema_test_parse_user_kyc_to_candidate_identity"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L126",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_rationale_126",
+      "target": "tests_test_schema_test_parse_candidate_media_to_snippet_identity"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L157",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_rationale_157",
+      "target": "tests_test_schema_test_frozen_prevents_field_mutation"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L169",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_rationale_169",
+      "target": "tests_test_schema_test_frozen_prevents_alias_append"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L184",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_rationale_184",
+      "target": "tests_test_schema_test_non_canonical_identifier_key_rejected"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L196",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_rationale_196",
+      "target": "tests_test_schema_test_future_date_rejected_on_snippet"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_schema.py",
+      "source_location": "L210",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_test_schema_rationale_210",
+      "target": "tests_test_schema_test_extra_fields_forbidden_on_candidate_identity"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_rationale_14",
+      "target": "config_schema_candidate"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "config/schema.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_schema_rationale_20",
+      "target": "config_schema_matchresult"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "engine/extraction.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "engine_extraction_rationale_5",
+      "target": "engine_extraction_extract_data"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "bda120bbd5e4f738730dc4aab87ffb947931984e"
+}

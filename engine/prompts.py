@@ -3,9 +3,16 @@
 All prompt strings are centralized here. Always import from this module;
 never hardcode prompt strings elsewhere.
 """
-import json
+from __future__ import annotations
 
-PROMPT_VERSION: str = "1.0.0"
+import datetime
+import json
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from config.schema import MatchCard
+
+PROMPT_VERSION: str = "1.1.0"
 
 EXTRACTION_SYSTEM_PROMPT: str = """You are a Precision KYC Investigator. Your sole task is to extract structured identity data from a single news article snippet, anchored against a reference User KYC profile. Output valid JSON only. No prose. No markdown. No code fences.
 
@@ -142,3 +149,124 @@ Correct output:
 def build_extraction_user_message(anchor: dict, snippet: dict) -> str:
     """Format the per-call user turn (anchor + single snippet) as a JSON string."""
     return json.dumps({"anchor": anchor, "snippet": snippet}, ensure_ascii=False)
+
+
+REASONING_SYSTEM_PROMPT: str = """You are an Identity Adjudication Engine. Your sole task is to determine whether a User and a Candidate are the same person, based on media evidence snippets. Output valid JSON only. No markdown. No code fences. No prose outside the JSON object.
+
+## OUTPUT SCHEMA
+Return exactly one JSON object with exactly two fields:
+{
+  "adjudication": "<exactly 'MATCH' or 'UNCERTAIN'>",
+  "reasoning_narrative": "<string, 50–300 characters, English only>"
+}
+
+## LANGUAGE RULES
+- English only.
+- Prohibited phrases: "As an AI", "I think", "I believe", "Based on the data", "It appears".
+- Never mention raw identifier numbers (PAN, Aadhar, SSN digits). Refer to them only as "matching identifier" or "government-issued identifier".
+
+## ADJUDICATION RULES
+Output "adjudication": "MATCH" ONLY IF all three conditions hold:
+1. At least 2 snippet summaries INDEPENDENTLY assert the same profession AND the same geographic location.
+2. Both profession AND location assertions fall within the same 5-year time window (compare article_date values).
+3. No snippet directly contradicts the user's core identity (e.g., age gap > 5 years, conflicting gender).
+
+Output "adjudication": "UNCERTAIN" if:
+- Fewer than 2 snippets independently corroborate profession AND location together.
+- Any snippet directly contradicts the user's known identity.
+- The evidence is ambiguous or inconclusive.
+
+## PROVENANCE WEIGHTING
+When resolving conflicting evidence, apply this source priority (highest to lowest):
+1. government_registry — treat as authoritative fact.
+2. court_filing / regulatory_notice — high reliability.
+3. news_article — moderate reliability.
+4. blog / social_media — lowest reliability; corroborates only, never sole evidence.
+
+## CONSENSUS_CONFLICT HANDLING
+If active_flags contains "CONSENSUS_CONFLICT", your reasoning_narrative MUST:
+- Name the specific conflicting field (e.g., "DOB", "Location", "Profession").
+- Contain the word "resolved" or "prioritized" explaining how you handled the conflict.
+
+## HARD PROHIBITIONS
+1. NEVER output "MATCH" based on name similarity alone.
+2. NEVER output confidence scores or probability percentages in the narrative.
+3. NEVER wrap the JSON output in markdown code fences.
+4. NEVER produce a reasoning_narrative shorter than 50 characters.
+5. NEVER produce a reasoning_narrative longer than 300 characters."""
+
+
+_TOKEN_BUDGET_CHARS = 12_000  # ~3000 tokens for user message; leaves headroom for system prompt
+
+
+def build_reasoning_user_message(card: MatchCard) -> str:
+    """Build the per-call user turn for the Tier-2 reasoning judge as a JSON string.
+
+    Extracts user profile from comparison_rows (only available source of anchor data
+    on a MatchCard), masks raw identifier values, and truncates snippets if the payload
+    exceeds the token budget.
+    """
+    # Extract user profile from the symmetric comparison table
+    user_profile: dict[str, object] = {}
+    identifier_types_present: list[str] = []
+
+    for row in card.comparison_rows:
+        label = row.field_label
+        if label == "Name":
+            user_profile["name"] = row.user_value
+        elif label == "DOB / Projected Age":
+            user_profile["dob_or_age"] = row.user_value
+        elif label == "Gender":
+            user_profile["gender"] = row.user_value
+        elif label == "Location":
+            user_profile["location"] = row.user_value
+        elif label == "Profession":
+            user_profile["profession"] = row.user_value
+        elif label.startswith("ID:") and row.user_value:
+            # Never expose raw identifier values — signal presence only
+            identifier_types_present.append(label[3:].strip())
+
+    if identifier_types_present:
+        user_profile["identifier_types_present"] = identifier_types_present
+
+    # Build snippet summaries sorted newest-first (oldest dropped first if truncation needed)
+    snippets = sorted(
+        card.candidate_summary.supporting_snippets,
+        key=lambda s: s.article_date or datetime.date.min,
+        reverse=True,
+    )
+    snippet_list = [
+        {
+            "identity_summary": s.identity_summary,
+            "profession_raw": s.profession_raw,
+            "locations": [loc.raw for loc in s.locations if loc.raw],
+            "article_date": str(s.article_date) if s.article_date else None,
+        }
+        for s in snippets
+    ]
+
+    payload: dict[str, object] = {
+        "context": {
+            "current_confidence": card.final_confidence,
+            "current_verdict": card.verdict_label,
+            "active_flags": card.flags,
+        },
+        "user_profile": user_profile,
+        "candidate_profile": {
+            "name": card.candidate_summary.full_name,
+            "identity_summary": card.candidate_summary.identity_summary,
+            "source_provenance": list(card.candidate_summary.source_provenance),
+        },
+        "snippet_summaries": snippet_list,
+    }
+
+    serialized = json.dumps(payload, ensure_ascii=False)
+
+    # Enforce token budget by dropping oldest snippets until payload fits
+    while len(serialized) > _TOKEN_BUDGET_CHARS and snippet_list:
+        snippet_list.pop()
+        payload["snippet_summaries"] = snippet_list
+        payload["context_truncated"] = True  # type: ignore[assignment]
+        serialized = json.dumps(payload, ensure_ascii=False)
+
+    return serialized

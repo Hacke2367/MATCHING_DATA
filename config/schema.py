@@ -229,6 +229,7 @@ class MatchCard(BaseModel):
     # Narrative justification
     identity_summary: str
     llm_verdict: Optional[str] = None
+    pre_llm_verdict_label: Optional[str] = None  # audit: verdict_label before Tier-2 mutation
 
     # Risk intelligence
     risk_types: List[str] = Field(default_factory=list)
@@ -246,3 +247,11 @@ class BatchScoreResult(BaseModel):
     best_match: Optional[MatchCard] = None          # highest final_confidence; None if all hard-rejected
     all_results: List[MatchCard]                    # sorted desc by final_confidence, includes hard-rejects
     run_metadata: Dict[str, str]                    # engine_version, run_started_utc, run_finished_utc, candidate_count
+
+
+class ReasoningOutput(BaseModel):
+    """Structured output contract parsed from the Tier-2 LLM judge response."""
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    adjudication: Literal["MATCH", "UNCERTAIN"]
+    reasoning_narrative: str = Field(..., min_length=50)

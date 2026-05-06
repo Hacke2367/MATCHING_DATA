@@ -357,11 +357,11 @@ def score(anchor: CandidateIdentity, candidate: CandidateIdentity) -> MatchCard:
     )
 
     # ── Tier 2: LLM Handoff ───────────────────────────────────────────────────
+    # tier_reached is set by reasoning.evaluate() only on successful validated parse.
     if not hard_reject and (0.50 <= final_confidence <= 0.89 or "CONSENSUS_CONFLICT" in candidate.flags):
         updated = reasoning.evaluate(card)
         if updated is not None:
             card = updated
-        card.tier_reached = "tier_2_llm_judge"
 
     return card
 

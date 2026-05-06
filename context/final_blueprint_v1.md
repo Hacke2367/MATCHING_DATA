@@ -238,13 +238,41 @@ class CandidateIdentity(BaseModel):
 
 The dashboard is the human-facing surface that exercises the engine end-to-end against real Source A + Source B inputs. It is the primary tool for validating extraction, scoring, and the safety gates before the engine is wired into production KYC flows.
 
-### Workflow Contract
-1. **Input 1 — Source A**: a single User KYC JSON (the 130-field shape from `actual_user.json`).
-2. **Input 2 — Source B**: a list of one or more raw ComplyAdvantage candidate objects.
-3. **On Submit**: the engine iterates through every candidate in Source B, scores each against Source A independently, sorts by `final_confidence` descending, and returns a `BatchScoreResult` (see `data_schema.md` §10).
-4. **Best-Match Identification**: the candidate at index 0 of `all_results` is the dashboard's primary focus and renders as a `MatchCard`. Lower-ranked candidates are accessible via a collapsible secondary list. Hard-rejected candidates remain in `all_results` so the reviewer can audit *why* a name-matching candidate was discarded.
+**Streamlit entry point:** `streamlit run dashboard/app.py` (run from project root)
 
-### Verdict Gauge
+---
+
+### 5.1 Two-Page Architecture
+
+**Page 1 — Run Match** (`dashboard/pages/run_match.py`)
+
+The active analysis page. Users upload live data via `st.file_uploader()`, trigger the engine, and review results immediately. No hardcoded paths in the UI.
+
+**Page 2 — History** (`dashboard/pages/history.py`)
+
+The "Memory Vault." Searches and filters all past runs persisted in `saved_reports/`. No engine logic — pure filesystem read via `dashboard/utils/report_index.py`. Results are lazy-loaded: only the selected report's full JSON is read on demand. The scan is cached with `@st.cache_data(ttl=60)` to avoid re-scanning on every Streamlit rerender.
+
+---
+
+### 5.2 Workflow Contract
+
+#### Run Match Page
+
+1. **Input 1 — Source A**: Upload a single User KYC JSON (the 130-field shape from `actual_user.json`) via `st.file_uploader()`.
+2. **Input 2 — Source B**: Upload one or more raw ComplyAdvantage candidate JSONs via `st.file_uploader(accept_multiple_files=True)`. The dashboard writes these to a `tempfile.mkdtemp()` directory and passes that path to `run_batch()`.
+3. **On Submit**: `run_batch(anchor_path, temp_dir)` is called. The engine scores each candidate against Source A independently, sorts by `final_confidence` descending, and returns a `BatchScoreResult`. The engine persists the result to `saved_reports/` automatically.
+4. **Best-Match Identification**: the candidate at index 0 of `all_results` is the dashboard's primary focus and renders as a full `MatchCard`. Lower-ranked candidates are accessible via `st.expander()`. Hard-rejected candidates remain in `all_results` so the reviewer can audit why each was discarded.
+
+#### History Page
+
+1. On page load: scan `saved_reports/match_*.json` for all past runs (cached 60 s).
+2. Read only minimal metadata per file: `user.full_name`, `user.record_id`, `user.aliases`, `best_match.verdict_color`, `best_match.final_confidence`, `run_metadata.run_started_utc`, `run_metadata.candidate_count`.
+3. Expose a search bar (name or record ID, case-insensitive substring) and filter controls: verdict color, date range, confidence threshold.
+4. On row selection: load the full JSON for that report only and render its best-match `MatchCard`.
+
+---
+
+### 5.3 Verdict Gauge
 
 | Score Band | Gauge | `verdict_label` | Meaning |
 | :--- | :--- | :--- | :--- |
@@ -255,25 +283,68 @@ The dashboard is the human-facing surface that exercises the engine end-to-end a
 
 A 🔴 RED verdict on a hard-reject case is a **success signal**, not a failure: it means the safety gates protected the user.
 
-### Match Card Sections (UI rendering order)
+---
 
-1. **Verdict Banner** — large color-coded gauge + `final_confidence` + `tier_reached` + `verdict_label`.
-2. **Symmetric Comparison Table** — two-column side-by-side view driven by `MatchCard.comparison_rows`. Mandatory rows: Name, DOB / Projected Age, Gender, Location (hierarchical render), Profession, and one row per populated identifier on either side. Each row is tagged `match` / `partial` / `mismatch` / `missing`.
-3. **Scoring Audit Trail** — transparent table of the 60/20/10/10 weightage distribution showing points actually earned per field, the `denominator` used (which excludes unscoreable fields — never treat missing as zero), and any `penalties_applied`.
-4. **Narrative Justification** — `identity_summary` always shown. `llm_verdict` displayed only when `tier_reached == "tier_2_llm_judge"`.
-5. **Risk Intelligence** — `risk_types` chips (PEP, Sanctions, Adverse Media variants, fitness-probity) and `source_provenance` (rendered with credibility tier: government registry > major news > blog).
-6. **Operational Flags** — surface every flag (`AGE_PROJECTED`, `GENDER_NULL_BOTH_SIDES`, `DOB_YEAR_ONLY`, `NO_REF_DATE`, `MULTI_COUNTRY_CANDIDATE`, `NO_IDENTIFIERS`, `CONSENSUS_CONFLICT`, `EVENT_DATE_AMBIGUOUS`) so the reviewer sees exactly which graceful-degradation paths the engine took.
+### 5.4 Match Card Layout (5-tab design)
 
-### Implementation Note
-The `MatchCard` shape **is** the engine's output contract. `engine/extraction.py` and `engine/scoring.py` must populate every MatchCard field so the dashboard layer is purely presentational — no business logic in the front-end. This keeps the engine independently testable (the Test-Bench is one consumer; production KYC pipelines will be another).
+Each `MatchCard` renders as a Streamlit section with a colored left border (4 px solid, GREEN/AMBER/RED) injected via custom CSS. Internal content is organized in 5 tabs (`dashboard/components/match_card.py`):
+
+**Tab 1 — Verdict**
+- Colored banner: large `verdict_label` badge + `final_confidence` percentage
+- `st.progress(final_confidence)` visual bar
+- `tier_reached` badge + candidate ID
+- `identity_summary` (always shown, styled as block-quote)
+- Operational flags rendered as inline monospace chips
+
+**Tab 2 — Comparison** (`dashboard/components/comparison_table.py`)
+- `st.dataframe()` with pandas row colors by `match_status`: match=green, partial=amber, mismatch=red, missing=gray
+- Mandatory rows: Name, DOB / Projected Age, Gender, Location (hierarchical), Profession, one row per identifier
+- `contribution_pts` shown per row
+
+**Tab 3 — Score Audit** (`dashboard/components/score_audit.py`)
+- `st.progress()` bar per field: earned / max points
+- Denominator used (excludes unscoreable fields)
+- `penalties_applied` list
+
+**Tab 4 — Risk Intelligence** (`dashboard/components/risk_panel.py`)
+- `risk_types` chips color-coded by category (PEP=purple, sanction=red, adverse-media=amber, fitness=pink)
+- `source_provenance` with credibility tier: Government Registry > Major News/Aggregator > Other
+- `llm_verdict` (shown only when `tier_reached == "tier_2_llm_judge"`; pre-LLM label preserved for audit)
+
+**Tab 5 — Snippets**
+- Expandable list of `candidate_summary.supporting_snippets`
+- Per snippet: title, date, text excerpt, extracted fields (gender, age, location, identifiers), confidence, flags
 
 ---
 
-## Files to Implement (next phase — not in scope of this document)
+### 5.5 Design Philosophy
 
-- `config/schema.py` — replace placeholder dataclasses with the full Pydantic models (`GeoLocation`, `SnippetIdentity`, `CandidateIdentity`, `ComparisonRow`, `MatchCard`, `BatchScoreResult`).
-- `engine/extraction.py` — implement `extract_user(raw_user_json) -> CandidateIdentity` and `extract_candidate(raw_candidate_json) -> CandidateIdentity` (the latter internally produces `SnippetIdentity` per article, then aggregates).
-- `engine/scoring.py` — implement weighted scoring per `scoring_logic.md` §2–§5, batch-mode best-match selection per §9, and `MatchCard` population per §10.
-- `engine/reasoning.py` — implement Layer-3 LLM Judge per `scoring_logic.md` §6; populate `llm_verdict` on the MatchCard.
-- `dashboard/` — Test-Bench UI (separate package). Consumes `BatchScoreResult` only — no engine logic.
-- Add `pydantic` to `requirements.txt`.
+**Light theme** — white background, system font (Inter fallback), `layout="wide"`.
+**Readability over decoration**: dense data tables, bolded key metrics, monospace for IDs/flags.
+
+**Match Cards feel premium through restraint:**
+- Colored left border (4 px solid) — the only decoration on the card
+- Subtle `box-shadow: 0 2px 10px rgba(0,0,0,0.07)` for depth
+- Tab navigation — no vertical scrolling through unrelated sections
+- Custom CSS injected once at app startup (`dashboard/styles/main.css`)
+
+**No business logic in the front-end.** `engine/scoring.py` populates every `MatchCard` field. The dashboard layer is purely presentational — it renders what the engine provides, never computes.
+
+---
+
+### 5.6 Implementation Files
+
+| File | Purpose |
+|---|---|
+| `dashboard/app.py` | Entry point: sets CWD, loads CSS, sidebar navigation |
+| `dashboard/pages/run_match.py` | Upload + Run + View Results page |
+| `dashboard/pages/history.py` | Historical search + filter + lazy-load page |
+| `dashboard/components/match_card.py` | Full 5-tab MatchCard renderer |
+| `dashboard/components/comparison_table.py` | Styled comparison dataframe |
+| `dashboard/components/score_audit.py` | Score breakdown progress bars + penalties |
+| `dashboard/components/risk_panel.py` | Risk chips + provenance + LLM verdict |
+| `dashboard/utils/report_index.py` | Read-only filesystem scanner + search/filter |
+| `dashboard/utils/file_handler.py` | Upload bytes → temp file, cleanup |
+| `dashboard/styles/main.css` | Card shadow, border, chip, badge CSS |
+
+**`ReportIndex` design constraint:** Lives entirely in the dashboard layer. Zero writes, zero sidecar files, zero coupling to engine modules. For V1 (< ~200 reports) the `@st.cache_data(ttl=60)` in-memory scan is sufficient. A sidecar `saved_reports/.index.json` can be added as a V2 optimization if volume grows.

@@ -29,6 +29,24 @@ logger = logging.getLogger(__name__)
 _MAX_RETRIES = 3
 _STRIP_KEYS = frozenset({"additionalProperties", "title", "$schema", "default", "$defs"})
 
+# ── Rate-limit guard ─────────────────────────────────────────────────────────
+# Free-tier limits: gemini-2.0-flash-lite = 30 RPM, gemini-2.0-flash = 15 RPM.
+# _MIN_CALL_INTERVAL enforces minimum seconds between calls across the process.
+# Set GEMINI_MIN_CALL_INTERVAL_SECS=0 in .env when using a paid plan.
+_last_call_time: float = 0.0
+_MIN_CALL_INTERVAL: float = float(os.getenv("GEMINI_MIN_CALL_INTERVAL_SECS", "2.5"))
+
+
+def _rate_limit_sleep() -> None:
+    """Sleep the remaining time needed to stay under the configured RPM."""
+    global _last_call_time
+    if _MIN_CALL_INTERVAL > 0:
+        elapsed = time.time() - _last_call_time
+        wait = _MIN_CALL_INTERVAL - elapsed
+        if wait > 0:
+            time.sleep(wait)
+    _last_call_time = time.time()
+
 
 def _clean_schema(schema: dict) -> dict:
     """Convert a Pydantic JSON schema dict into a Gemini-compatible schema.
@@ -97,6 +115,8 @@ def call_gemini(
         ExtractionError(code="RATE_LIMIT_EXHAUSTED"):        429 after 3 retries.
         ExtractionError(code="PRE_VALIDATION_PARSE_FAILURE"): JSON parse failed.
     """
+    _rate_limit_sleep()
+
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
         raise ExtractionError(
@@ -117,7 +137,7 @@ def call_gemini(
     for attempt in range(_MAX_RETRIES):
         try:
             response = client.models.generate_content(
-                model="gemini-2.0-flash",
+                model=os.getenv("GEMINI_MODEL", "gemini-2.0-flash-lite"),
                 config=config,
                 contents=user_message,
             )

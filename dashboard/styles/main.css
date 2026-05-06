@@ -1,0 +1,183 @@
+/* ── Match Card ─────────────────────────────────────────────────────────── */
+.match-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    border-left: 4px solid #e5e7eb;
+}
+.match-card--GREEN { border-left-color: #22c55e; }
+.match-card--AMBER { border-left-color: #f59e0b; }
+.match-card--RED   { border-left-color: #ef4444; }
+
+/* ── Verdict ────────────────────────────────────────────────────────────── */
+.verdict-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 4px;
+}
+.verdict-badge {
+    display: inline-block;
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.verdict-badge--GREEN { background: #dcfce7; color: #15803d; }
+.verdict-badge--AMBER { background: #fef9c3; color: #92400e; }
+.verdict-badge--RED   { background: #fee2e2; color: #b91c1c; }
+
+.confidence-pct {
+    font-size: 28px;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1;
+}
+
+/* ── Tier Badge ─────────────────────────────────────────────────────────── */
+.tier-badge {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    font-family: ui-monospace, monospace;
+}
+
+/* ── Flag Chips ─────────────────────────────────────────────────────────── */
+.flag-chips { margin-top: 10px; }
+.flag-chip {
+    display: inline-block;
+    background: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-family: ui-monospace, monospace;
+    margin: 2px 3px 2px 0;
+}
+
+/* ── Risk Chips ─────────────────────────────────────────────────────────── */
+.risk-chip {
+    display: inline-block;
+    padding: 3px 11px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 2px 4px 2px 0;
+}
+.risk-chip--sanction { background: #fee2e2; color: #b91c1c; }
+.risk-chip--pep      { background: #ede9fe; color: #6d28d9; }
+.risk-chip--media    { background: #fef3c7; color: #92400e; }
+.risk-chip--fitness  { background: #fce7f3; color: #9d174d; }
+.risk-chip--warning  { background: #e0f2fe; color: #0369a1; }
+.risk-chip--other    { background: #f3f4f6; color: #374151; }
+
+/* ── Section Labels ─────────────────────────────────────────────────────── */
+.section-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #9ca3af;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* ── Identity Summary Quote ─────────────────────────────────────────────── */
+.identity-summary {
+    font-size: 14px;
+    color: #374151;
+    background: #f9fafb;
+    border-left: 3px solid #d1d5db;
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    margin: 10px 0;
+    font-style: italic;
+}
+
+/* ── Score Bar Labels ───────────────────────────────────────────────────── */
+.score-field-label {
+    font-weight: 700;
+    font-size: 13px;
+    color: #111827;
+}
+.score-pts {
+    font-size: 13px;
+    color: #6b7280;
+    font-family: ui-monospace, monospace;
+}
+
+/* ── Provenance Table ───────────────────────────────────────────────────── */
+.prov-gov  { color: #15803d; font-weight: 700; font-size: 12px; }
+.prov-news { color: #0369a1; font-weight: 600; font-size: 12px; }
+.prov-other{ color: #6b7280; font-size: 12px; }
+
+/* ── LLM Verdict Box ────────────────────────────────────────────────────── */
+.llm-verdict-box {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #166534;
+    margin-top: 10px;
+    white-space: pre-wrap;
+}
+
+/* ── Snippet Card ───────────────────────────────────────────────────────── */
+.snippet-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: #111827;
+}
+.snippet-date {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-left: 8px;
+}
+.snippet-text {
+    font-size: 12px;
+    color: #4b5563;
+    background: #f9fafb;
+    padding: 8px 10px;
+    border-radius: 4px;
+    margin: 6px 0;
+    white-space: pre-wrap;
+}
+
+/* ── Upload Zone ────────────────────────────────────────────────────────── */
+.upload-header {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+
+/* ── Run Metadata Bar ───────────────────────────────────────────────────── */
+.run-meta {
+    font-size: 12px;
+    color: #9ca3af;
+    background: #f9fafb;
+    padding: 8px 14px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+/* ── History Row ────────────────────────────────────────────────────────── */
+.hist-empty {
+    text-align: center;
+    color: #9ca3af;
+    padding: 40px 0;
+    font-size: 15px;
+}

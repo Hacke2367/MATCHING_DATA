@@ -44,8 +44,8 @@ _COUNTRY_CODES: dict[str, str] = {
     "United Arab Emirates": "AE",
 }
 
-# JSON schema passed to Gemini as structured output enforcement
-SNIPPET_RESPONSE_SCHEMA = SnippetIdentity.model_json_schema()
+# Pydantic class passed to Gemini as structured output schema (SDK converts natively)
+SNIPPET_RESPONSE_SCHEMA = SnippetIdentity
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -202,8 +202,9 @@ def extract_candidate(
                 "Candidate %s snippet[%d] — LLM error [%s]: %s", doc["id"], idx, exc.code, exc
             )
         except ValidationError as exc:
-            logger.warning(
-                "Candidate %s snippet[%d] — Pydantic validation failed: %s", doc["id"], idx, exc
+            logger.error(
+                "Candidate %s snippet[%d] — Pydantic validation failed (%d error(s)):\n%s",
+                doc["id"], idx, exc.error_count(), exc
             )
 
     if not valid_snippets:

@@ -83,6 +83,34 @@ class SnippetIdentity(BaseModel):
     flags: List[SnippetFlag] = Field(default_factory=list)
     extraction_confidence: float = Field(..., ge=0.0, le=1.0)
 
+    @field_validator("gender", mode="before")
+    @classmethod
+    def normalise_gender(cls, v: object) -> object:
+        return v.lower().strip() if isinstance(v, str) else v
+
+    @field_validator("identity_summary", mode="before")
+    @classmethod
+    def truncate_summary(cls, v: object) -> object:
+        return v[:200] if isinstance(v, str) and len(v) > 200 else v
+
+    @field_validator("age_at_event", mode="before")
+    @classmethod
+    def coerce_age(cls, v: object) -> object:
+        # LLM sometimes returns age as a string; coerce before AgeBounded strict-int check
+        if isinstance(v, str):
+            try:
+                return int(v)
+            except (ValueError, TypeError):
+                return None
+        return v
+
+    @field_validator("flags", mode="before")
+    @classmethod
+    def normalise_flags(cls, v: object) -> object:
+        if isinstance(v, list):
+            return [item.upper().strip() if isinstance(item, str) else item for item in v]
+        return v
+
     @field_validator("article_date", "event_date", mode="before")
     @classmethod
     def no_future_dates(cls, v: object) -> object:
@@ -158,6 +186,11 @@ class CandidateIdentity(BaseModel):
     # === 10. FLAGS & CONFIDENCE ===
     flags: List[CandidateFlag] = Field(default_factory=list)
     extraction_confidence: float | None = Field(None, ge=0.0, le=1.0)
+
+    @field_validator("gender", mode="before")
+    @classmethod
+    def normalise_gender(cls, v: object) -> object:
+        return v.lower().strip() if isinstance(v, str) else v
 
     @field_validator("article_date", "event_date", "dob_exact", "reference_date", mode="before")
     @classmethod
@@ -238,6 +271,11 @@ class MatchCard(BaseModel):
     # Operational flags
     flags: List[str] = Field(default_factory=list)
 
+    @field_validator("verdict_color", mode="before")
+    @classmethod
+    def normalise_verdict_color(cls, v: object) -> object:
+        return v.upper().strip() if isinstance(v, str) else v
+
 
 class BatchScoreResult(BaseModel):
     """Top-level engine output for one Source A vs N Source B run."""
@@ -255,3 +293,8 @@ class ReasoningOutput(BaseModel):
 
     adjudication: Literal["MATCH", "UNCERTAIN"]
     reasoning_narrative: str = Field(..., min_length=50)
+
+    @field_validator("adjudication", mode="before")
+    @classmethod
+    def normalise_adjudication(cls, v: object) -> object:
+        return v.upper().strip() if isinstance(v, str) else v

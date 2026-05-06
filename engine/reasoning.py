@@ -25,10 +25,9 @@ _RETRY_SLEEP_SECS = 2   # seconds between attempts
 
 def _call_llm(user_message: str) -> ReasoningOutput | None:
     """Call Gemini and parse into ReasoningOutput. Returns None if all attempts exhausted."""
-    schema = ReasoningOutput.model_json_schema()
     for attempt in range(_MAX_ATTEMPTS):
         try:
-            raw = call_gemini(REASONING_SYSTEM_PROMPT, user_message, schema)
+            raw = call_gemini(REASONING_SYSTEM_PROMPT, user_message, ReasoningOutput)
             return ReasoningOutput.model_validate(raw)
         except (ExtractionError, ValidationError) as exc:
             logger.warning(

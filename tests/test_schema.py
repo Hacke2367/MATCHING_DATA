@@ -86,7 +86,7 @@ def test_geolocation_rejects_extra_fields():
 
 def test_parse_user_kyc_to_candidate_identity():
     """CandidateIdentity must parse successfully from test_scenario_1 KYC data."""
-    with open(DATA_ROOT / "actual_user" / "test_scenario_1.json") as f:
+    with open(DATA_ROOT / "actual_user" / "boss.json") as f:
         d = json.load(f)
 
     user = CandidateIdentity(

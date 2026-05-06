@@ -1,26 +1,67 @@
 """LLM Connectivity Bridge — Gemini 1.5 Flash (google-genai SDK).
 
 Handles connectivity, retry logic, and raw JSON de-serialization.
-Upstream callers (extraction.py) never interact with the Gemini SDK directly.
+Upstream callers (extraction.py, reasoning.py) never interact with the SDK directly.
 
 Public interface:
     call_gemini(system_prompt, user_message, response_schema) -> dict
     ExtractionError — raised on all LLM-layer failures
+
+API version note:
+    responseMimeType and responseSchema live in v1beta's generation_config.
+    They do NOT exist in the stable v1 API — always use v1beta for structured output.
 """
 import json
 import logging
 import os
 import re
 import time
+from typing import Type
 
 import google.api_core.exceptions
 from google import genai
 from google.genai import errors as genai_errors
 from google.genai import types
+from pydantic import BaseModel
 
 logger = logging.getLogger(__name__)
 
 _MAX_RETRIES = 3
+_STRIP_KEYS = frozenset({"additionalProperties", "title", "$schema", "default", "$defs"})
+
+
+def _clean_schema(schema: dict) -> dict:
+    """Convert a Pydantic JSON schema dict into a Gemini-compatible schema.
+
+    Gemini accepts a restricted OpenAPI 3.0 subset. Pydantic v2 emits several
+    keys that the v1beta API rejects. This function:
+      - Strips:   additionalProperties, title, $schema, default, $defs
+      - Inlines:  $ref pointers using the $defs definitions
+      - Converts: anyOf:[T, null]  →  {type: T, nullable: true}  (Optional fields)
+    """
+    defs = schema.get("$defs", {})
+
+    def _walk(node: object) -> object:
+        if not isinstance(node, dict):
+            return [_walk(i) for i in node] if isinstance(node, list) else node
+
+        # Resolve $ref inline
+        if "$ref" in node:
+            ref_name = node["$ref"].split("/")[-1]
+            return _walk(defs.get(ref_name, {}))
+
+        # Convert Optional[X] pattern: anyOf:[{type:X}, {type:null}] → nullable
+        if "anyOf" in node and len(node["anyOf"]) == 2:
+            null_part = next((p for p in node["anyOf"] if p.get("type") == "null"), None)
+            real_part = next((p for p in node["anyOf"] if p.get("type") != "null"), None)
+            if null_part is not None and real_part is not None:
+                cleaned = _walk(real_part)
+                if isinstance(cleaned, dict):
+                    return {**cleaned, "nullable": True}
+
+        return {k: _walk(v) for k, v in node.items() if k not in _STRIP_KEYS}
+
+    return _walk(schema)  # type: ignore[return-value]
 
 
 class ExtractionError(Exception):
@@ -38,21 +79,22 @@ class ExtractionError(Exception):
 def call_gemini(
     system_prompt: str,
     user_message: str,
-    response_schema: dict,
+    response_schema: Type[BaseModel],
 ) -> dict:
-    """Call Gemini 1.5 Flash with temperature=0 and JSON output enforcement.
+    """Call Gemini 1.5 Flash (v1beta) with temperature=0 and JSON output enforcement.
 
     Args:
-        system_prompt: The system instruction (from engine/prompts.py).
-        user_message: The per-call user turn (JSON string from build_extraction_user_message).
-        response_schema: JSON schema dict for Gemini's response_schema parameter.
+        system_prompt:   The system instruction (from engine/prompts.py).
+        user_message:    The per-call user turn as a JSON string.
+        response_schema: A Pydantic BaseModel *class*. Its schema is cleaned
+                         internally before being sent to the API.
 
     Returns:
         Parsed dict from Gemini's response.
 
     Raises:
-        ExtractionError(code="AUTH_FAILURE"):               GEMINI_API_KEY not set.
-        ExtractionError(code="RATE_LIMIT_EXHAUSTED"):       429 after 3 retries.
+        ExtractionError(code="AUTH_FAILURE"):                GEMINI_API_KEY not set.
+        ExtractionError(code="RATE_LIMIT_EXHAUSTED"):        429 after 3 retries.
         ExtractionError(code="PRE_VALIDATION_PARSE_FAILURE"): JSON parse failed.
     """
     api_key = os.getenv("GEMINI_API_KEY")
@@ -61,12 +103,12 @@ def call_gemini(
             "GEMINI_API_KEY environment variable is not set", code="AUTH_FAILURE"
         )
 
-    client = genai.Client(api_key=api_key)
+    client = genai.Client(api_key=api_key, http_options={"api_version": "v1beta"})
     config = types.GenerateContentConfig(
         system_instruction=system_prompt,
         temperature=0.0,
         response_mime_type="application/json",
-        response_schema=response_schema,
+        response_schema=_clean_schema(response_schema.model_json_schema()),
     )
 
     last_exc: Exception | None = None
@@ -75,7 +117,7 @@ def call_gemini(
     for attempt in range(_MAX_RETRIES):
         try:
             response = client.models.generate_content(
-                model="gemini-1.5-flash",
+                model="gemini-2.0-flash",
                 config=config,
                 contents=user_message,
             )

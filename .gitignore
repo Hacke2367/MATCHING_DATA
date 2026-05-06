@@ -44,6 +44,8 @@ Thumbs.db
 .claude/knowledge-graph/
 .claude/graphify-cache/
 *.graph.json
+graphify-out/
+
 
 # Generated outputs (but keep test data)
 outputs/

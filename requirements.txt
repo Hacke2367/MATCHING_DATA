@@ -16,3 +16,5 @@ pandas>=2.0
 
 # Testing
 pytest>=7.0
+
+google-api-core>=2.15.0

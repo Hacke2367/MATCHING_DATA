@@ -4,7 +4,8 @@ Single public entry point for the Pro-Match engine. Coordinates:
     extraction.extract_user  →  extraction.extract_candidate  →  scoring.score
                                                                (scoring owns Tier-2 handoff)
 
-This module never calls the LLM judge directly; scoring.score() owns Tier-2 handoff.
+Candidate files are processed concurrently via ThreadPoolExecutor.
+The concurrency cap and rate-limit guard live in llm_service.py.
 
 Public interface:
     run_batch(anchor_filepath, candidates_dir) -> tuple[BatchScoreResult, Optional[str]]
@@ -14,6 +15,7 @@ from __future__ import annotations
 import logging
 import os
 import uuid
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
@@ -26,6 +28,7 @@ logger = logging.getLogger(__name__)
 
 ORCHESTRATOR_VERSION = "1.2.0"
 REPORTS_DIR = Path("saved_reports")   # relative to CWD per spec §6
+_MAX_WORKERS: int = int(os.getenv("GEMINI_MAX_CONCURRENCY", "8"))
 
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
@@ -50,7 +53,7 @@ def _build_dummy_card(record_id: str, exc: Exception) -> MatchCard:
         denominator=0.0,
         penalties_applied=[],
         identity_summary="Processing error",
-        flags=["ORCHESTRATOR_PARSE_ERROR", f"error_detail: {str(exc)[:50]}"],
+        flags=["ORCHESTRATOR_PARSE_ERROR", f"error_detail: {str(exc)[:200]}"],
     )
 
 
@@ -60,6 +63,22 @@ def _sort_key(card: MatchCard) -> tuple[float, float, int]:
         -(card.candidate_summary.extraction_confidence or 0.0),
         -len(card.candidate_summary.supporting_snippets),
     )
+
+
+def _process_one(anchor: CandidateIdentity, file_path: Path) -> MatchCard:
+    """Process a single candidate file end-to-end. Fault-isolated per candidate."""
+    try:
+        candidate = extraction.extract_candidate(anchor, str(file_path))
+        if candidate is None:
+            raise ValueError("extract_candidate returned None — all snippets failed validation")
+        return scoring.score(anchor, candidate)
+    except Exception as exc:
+        logger.warning(
+            "Candidate processing failed for %s [%s]: %s",
+            file_path.name, type(exc).__name__, exc,
+        )
+        logger.debug("Full traceback for %s:", file_path.name, exc_info=True)
+        return _build_dummy_card(file_path.stem, exc)
 
 
 # ── Public API ─────────────────────────────────────────────────────────────────
@@ -125,21 +144,16 @@ def run_batch(
             cause=exc,
         ) from exc
 
-    # Processing Loop — fault-isolated per candidate
+    # Parallel candidate processing (fault-isolated per candidate)
     all_results: list[MatchCard] = []
-    for file_path in candidate_files:
-        try:
-            candidate = extraction.extract_candidate(anchor, str(file_path))
-            if candidate is None:
-                raise ValueError("extract_candidate returned None — all snippets failed validation")
-            card = scoring.score(anchor, candidate)
-        except Exception as exc:
-            logger.warning(
-                "Candidate processing failed for %s [%s]: %s",
-                file_path.name, type(exc).__name__, exc,
-            )
-            card = _build_dummy_card(file_path.stem, exc)
-        all_results.append(card)
+    n_workers = min(len(candidate_files), _MAX_WORKERS)
+    with ThreadPoolExecutor(max_workers=n_workers) as executor:
+        futures = {
+            executor.submit(_process_one, anchor, fp): fp
+            for fp in candidate_files
+        }
+        for future in as_completed(futures):
+            all_results.append(future.result())
 
     # Deterministic sort cascade (descending)
     all_results.sort(key=_sort_key)

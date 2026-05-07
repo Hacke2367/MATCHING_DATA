@@ -61,10 +61,13 @@ def render_comparison_table(rows: list["ComparisonRow"]) -> None:
                 ("font-weight", "700"),
                 ("text-transform", "uppercase"),
                 ("letter-spacing", "0.06em"),
-                ("color", "#6b7280"),
+                ("color", "#1f2937"),
                 ("border-bottom", "2px solid #e5e7eb"),
             ]},
-            {"selector": "td", "props": [("border-bottom", "1px solid #f3f4f6")]},
+            {"selector": "td", "props": [
+                ("border-bottom", "1px solid #f3f4f6"),
+                ("color", "#1f2937"),
+            ]},
         ])
     )
     st.dataframe(styled, use_container_width=True, hide_index=True)

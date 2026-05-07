@@ -114,6 +114,7 @@ def render() -> None:
         meta.get("run_finished_utc", ""),
     )
 
+    st.markdown('<div id="results-section"></div>', unsafe_allow_html=True)
     st.markdown(
         f'<div class="run-meta">'
         f'Engine v{meta.get("engine_version", "?")} &nbsp;·&nbsp; '
@@ -126,9 +127,16 @@ def render() -> None:
 
     # ── Best Match ───────────────────────────────────────────────────────────
     if result.best_match is None:
-        st.warning(
-            "All candidates were hard-rejected. No confident match found.  \n"
-            "See the secondary list below to audit each rejection reason."
+        n_green    = sum(1 for c in result.all_results if c.verdict_color == "GREEN")
+        n_amber    = sum(1 for c in result.all_results if c.verdict_color == "AMBER")
+        n_rejected = sum(1 for c in result.all_results if c.verdict_color == "RED")
+        col1, col2, col3 = st.columns(3)
+        col1.metric("Confirmed Match", n_green)
+        col2.metric("Review Required", n_amber)
+        col3.metric("Hard-Rejected",   n_rejected)
+        st.error(
+            "No confident match found — all candidates were rejected by the safety gates.  \n"
+            "Expand each candidate below to inspect the rejection reason."
         )
     else:
         st.subheader(f"Best Match — {result.best_match.candidate_summary.full_name.title()}")
@@ -136,8 +144,10 @@ def render() -> None:
 
     # ── Secondary Candidates ─────────────────────────────────────────────────
     others = [c for c in result.all_results if result.best_match is None or c.candidate_id != result.best_match.candidate_id]
+    no_best = result.best_match is None
     if others:
-        with st.expander(f"Secondary candidates ({len(others)})", expanded=False):
+        label = f"All candidates ({len(others)})" if no_best else f"Secondary candidates ({len(others)})"
+        with st.expander(label, expanded=no_best):
             for card in others:
                 render_mini_card(card)
                 with st.expander(f"Detail — {card.candidate_summary.full_name.title()} ({card.candidate_id})", expanded=False):

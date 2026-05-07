@@ -41,11 +41,11 @@ def render_score_audit(card: "MatchCard") -> None:
             st.markdown(f'<span class="score-field-label">{label}</span>', unsafe_allow_html=True)
         with col_pts:
             st.markdown(
-                f'<span class="score-pts">{earned:.0f} / {max_pts:.0f}</span>',
+                f'<span class="score-pts">{earned*100:.0f} / {max_pts*100:.0f} pts</span>',
                 unsafe_allow_html=True,
             )
         with col_bar:
-            st.progress(min(pct, 1.0))
+            st.progress(max(0.0, min(pct, 1.0)))
 
     st.divider()
 
@@ -53,7 +53,7 @@ def render_score_audit(card: "MatchCard") -> None:
     col_a, col_b = st.columns(2)
     with col_a:
         st.markdown(
-            f"**Denominator used:** `{card.denominator:.0f}` pts  \n"
+            f"**Denominator used:** `{card.denominator*100:.0f}` pts  \n"
             f"*(fields with no data excluded from scoring)*"
         )
     with col_b:

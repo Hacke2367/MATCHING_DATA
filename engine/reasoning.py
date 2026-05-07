@@ -9,6 +9,7 @@ Public interface:
 from __future__ import annotations
 
 import logging
+import os
 import time
 
 from pydantic import ValidationError
@@ -21,13 +22,21 @@ logger = logging.getLogger(__name__)
 
 _MAX_ATTEMPTS = 2       # initial call + 1 retry
 _RETRY_SLEEP_SECS = 2   # seconds between attempts
+# Tier-2 uses the Pro model for higher-quality adjudication.
+# Override via GEMINI_REASONING_MODEL env var; defaults to gemini-2.5-pro.
+_REASONING_MODEL: str = os.getenv("GEMINI_REASONING_MODEL", "gemini-2.5-pro")
 
 
 def _call_llm(user_message: str) -> ReasoningOutput | None:
     """Call Gemini and parse into ReasoningOutput. Returns None if all attempts exhausted."""
     for attempt in range(_MAX_ATTEMPTS):
         try:
-            raw = call_gemini(REASONING_SYSTEM_PROMPT, user_message, ReasoningOutput)
+            raw = call_gemini(
+                REASONING_SYSTEM_PROMPT,
+                user_message,
+                ReasoningOutput,
+                model_override=_REASONING_MODEL,
+            )
             return ReasoningOutput.model_validate(raw)
         except (ExtractionError, ValidationError) as exc:
             logger.warning(

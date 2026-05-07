@@ -9,11 +9,12 @@ import datetime
 from typing import Annotated, Dict, List, Literal, Optional
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-SCHEMA_VERSION: str = "1.1.0"
+SCHEMA_VERSION: str = "1.2.0"
 
 CANONICAL_IDENTIFIER_KEYS = frozenset({
     "PAN", "AADHAR", "SSN", "DIN", "VAT",
     "GST", "LEI", "PASSPORT", "CASE_ID", "OOMERO", "ENTITY_CLIENT",
+    "VOTER_ID", "DRIVING_LICENSE",
 })
 
 # Strict int for age fields — rejects string coercion (spec §6.1)

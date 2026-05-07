@@ -5,11 +5,16 @@ into the canonical CandidateIdentity for the scoring engine.
 
   Source A → extract_user(file_path)               → CandidateIdentity  (no LLM)
   Source B → extract_candidate(user, file_path, …)  → CandidateIdentity | None
+
+Snippet extraction is parallelised via ThreadPoolExecutor; the concurrency cap
+and rate-limit guard in llm_service.py ensure Gemini quota is respected.
 """
 import datetime
 import json
 import logging
+import os
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from pydantic import ValidationError
 
@@ -24,13 +29,14 @@ from engine.llm_service import ExtractionError, call_gemini
 from engine.prompts import EXTRACTION_SYSTEM_PROMPT, build_extraction_user_message
 
 # Fail-fast on schema version mismatch (Spec 02c §4)
-assert _SCHEMA_VERSION == "1.1.0", (
-    f"Schema version mismatch: expected 1.1.0, got {_SCHEMA_VERSION}"
+assert _SCHEMA_VERSION == "1.2.0", (
+    f"Schema version mismatch: expected 1.2.0, got {_SCHEMA_VERSION}"
 )
 
 logger = logging.getLogger(__name__)
 
 _DEFAULT_SNIPPET_N: int = 5
+_MAX_WORKERS: int = int(os.getenv("GEMINI_MAX_CONCURRENCY", "8"))
 
 _COUNTRY_CODES: dict[str, str] = {
     "India": "IN",
@@ -91,6 +97,8 @@ def extract_user(file_path: str) -> CandidateIdentity:
         "VAT": "vat_no",
         "GST": "gst_no",
         "LEI": "legal_entity_number",
+        "VOTER_ID": "voter_id_number",
+        "DRIVING_LICENSE": "driving_license_number",
     }
     identifiers = {
         key: str(d[field]).strip()
@@ -135,8 +143,50 @@ def extract_user(file_path: str) -> CandidateIdentity:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Source B: Candidate JSON → CandidateIdentity (LLM per snippet)
+# Source B: Candidate JSON → CandidateIdentity (LLM per snippet, parallelised)
 # ─────────────────────────────────────────────────────────────────────────────
+
+def _extract_snippet(
+    doc_id: str,
+    idx: int,
+    media: dict,
+    anchor_dict: dict,
+    canonical_name: str,
+    canonical_aka: list[str],
+) -> tuple[int, SnippetIdentity | None]:
+    """Extract a single media snippet via Gemini. Returns (idx, snippet_or_none)."""
+    article_date_raw = media.get("date") or ""
+    snippet_input: dict = {
+        "candidate_id": doc_id,
+        "candidate_canonical_name": canonical_name,
+        "candidate_known_aliases": canonical_aka,
+        "snippet_text": media.get("snippet", ""),
+        "article_date": article_date_raw[:10] if article_date_raw else None,
+        "snippet_url": media.get("url") or None,
+        "snippet_title": media.get("title") or None,
+    }
+    user_msg = build_extraction_user_message(anchor_dict, snippet_input)
+
+    try:
+        raw = call_gemini(EXTRACTION_SYSTEM_PROMPT, user_msg, SNIPPET_RESPONSE_SCHEMA)
+        snippet = SnippetIdentity(**raw)
+        logger.info(
+            "Candidate %s snippet[%d] validated OK (confidence=%.2f)",
+            doc_id, idx, snippet.extraction_confidence,
+        )
+        return idx, snippet
+    except ExtractionError as exc:
+        logger.warning(
+            "Candidate %s snippet[%d] — LLM error [%s]: %s", doc_id, idx, exc.code, exc
+        )
+        return idx, None
+    except ValidationError as exc:
+        logger.error(
+            "Candidate %s snippet[%d] — Pydantic validation failed (%d error(s)):\n%s",
+            doc_id, idx, exc.error_count(), exc
+        )
+        return idx, None
+
 
 def extract_candidate(
     user: CandidateIdentity,
@@ -158,7 +208,17 @@ def extract_candidate(
         data = json.load(f)
 
     doc = data["doc"]
-    media_list = doc.get("media", [])
+    # Guard against null media field (some candidates have "media": null)
+    media_list = doc.get("media") or []
+
+    # Canonical identity from the registry feed — authoritative subject of every snippet.
+    # Forwarded to the LLM so it never picks a different person's name out of the article text.
+    canonical_name = (doc.get("name") or "").strip()
+    canonical_aka = [
+        (a.get("name") or "").strip()
+        for a in (doc.get("aka") or [])
+        if isinstance(a, dict) and a.get("name")
+    ]
 
     # Bounds-checked index selection — snippet_indices filters LLM INPUT (Spec 02c §4)
     if snippet_indices is None:
@@ -175,37 +235,31 @@ def extract_candidate(
         "locations": [loc.model_dump(exclude_none=True) for loc in user.locations],
     }
 
-    # Per-snippet LLM extraction
+    # Parallel per-snippet LLM extraction
     valid_snippets: list[SnippetIdentity] = []
-    for idx in indices:
-        media = media_list[idx]
-        article_date_raw = media.get("date") or ""
-        snippet_input: dict = {
-            "candidate_id": doc["id"],
-            "snippet_text": media.get("snippet", ""),
-            "article_date": article_date_raw[:10] if article_date_raw else None,
-            "snippet_url": media.get("url") or None,
-            "snippet_title": media.get("title") or None,
-        }
-        user_msg = build_extraction_user_message(anchor_dict, snippet_input)
+    if not indices:
+        logger.error("No valid snippet indices for candidate %s — returning None", doc["id"])
+        return None
 
-        try:
-            raw = call_gemini(EXTRACTION_SYSTEM_PROMPT, user_msg, SNIPPET_RESPONSE_SCHEMA)
-            snippet = SnippetIdentity(**raw)
+    n_workers = min(len(indices), _MAX_WORKERS)
+    with ThreadPoolExecutor(max_workers=n_workers) as executor:
+        futures = {
+            executor.submit(
+                _extract_snippet, doc["id"], idx, media_list[idx], anchor_dict,
+                canonical_name, canonical_aka,
+            ): idx
+            for idx in indices
+        }
+        results: dict[int, SnippetIdentity | None] = {}
+        for future in as_completed(futures):
+            idx_result, snippet = future.result()
+            results[idx_result] = snippet
+
+    # Reassemble in original index order (preserves snippet sequence for aggregation)
+    for idx in indices:
+        snippet = results.get(idx)
+        if snippet is not None:
             valid_snippets.append(snippet)
-            logger.info(
-                "Candidate %s snippet[%d] validated OK (confidence=%.2f)",
-                doc["id"], idx, snippet.extraction_confidence,
-            )
-        except ExtractionError as exc:
-            logger.warning(
-                "Candidate %s snippet[%d] — LLM error [%s]: %s", doc["id"], idx, exc.code, exc
-            )
-        except ValidationError as exc:
-            logger.error(
-                "Candidate %s snippet[%d] — Pydantic validation failed (%d error(s)):\n%s",
-                doc["id"], idx, exc.error_count(), exc
-            )
 
     if not valid_snippets:
         logger.error("All snippets discarded for candidate %s — returning None", doc["id"])
